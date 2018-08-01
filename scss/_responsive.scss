@@ -1,0 +1,247 @@
+@media ( min-width: 992px ) and ( max-width: 1400px ) {
+
+  .site-menu ul li:nth-last-child(1),
+  .site-menu ul li:nth-last-child(2) {
+    .sub-menu {
+      left: auto;
+      right: 0;
+
+      li {
+        .sub-menu {
+          left: auto;
+          right: 90%;
+        }
+        &:hover {
+          > .sub-menu {
+            left: auto;
+            right: 100%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media ( min-width: 992px ) {
+
+  .site-menu {
+    ul {
+      li {
+        .sub-menu {
+          display: block !important;
+        }
+      }
+    }
+  }
+
+}
+
+@media ( min-width: 992px ) and ( max-width: 1200px ) {
+
+  .site-menu {
+    ul {
+      li {
+        a {
+          padding: 0 7px;
+        }
+      }
+    }
+  }
+
+}
+
+@media ( max-width: 991px ) {
+
+  .header-bottom_warp {
+    display: block;
+  }
+  .site-logo {
+    @include flexbox();
+    @include justify-content(space-between);
+  }
+  .navbar-toggle {
+    float: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  .site-menu {
+    text-align: left;
+
+    .collapse {
+      display: none !important;
+
+      &.in {
+        display: block !important;
+      }
+    }
+    ul {
+      li {
+        display: block;
+        padding: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        &:last-child {
+          border-bottom: 0;
+        }
+        a {
+          display: inline-block;
+          padding: 15px 0;
+        }
+        .sub-menu {
+          display: none;
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          border-top: 0;
+          background-color: transparent;
+          @include transition-duration(0s);
+
+          li {
+            border-bottom: 0;
+            padding: 0;
+
+            a {
+              padding: 8px 0;
+
+              &:before {
+                content: "\f10c";
+                display: inline-block;
+                font-family: "fontawesome";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 10px;
+                margin-right: 10px;
+              }
+            }
+            .icon_menu_item_mobile {
+              top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .icon_menu_item_mobile {
+    display: block;
+  }
+
+}
+
+@media ( min-width: 768px ) and ( max-width: 991px ) {
+
+  .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item,
+  .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) {
+    @include flex-direction(column);
+  }
+  .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item--image,
+  .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) .recent_posts_thumbs_widget_item--image {
+    max-width: 100%;
+    margin: 0 0 10px;
+  }
+  .recent_posts_thumbs_widget_grid {
+    .recent_posts_thumbs_widget_item {
+      width: 100%;
+    }
+  }
+
+}
+
+@media ( max-width: 767px ) {
+
+  .site-sidebar {
+    padding-top: 50px;
+  }
+  /* woocommerce */
+  .woocommerce,
+  .woocommerce-page {
+    .col2-set {
+      .col-1,
+      .col-2 {
+        @include flex(0 0 100%);
+        max-width: 100%;
+      }
+    }
+  }
+
+}
+
+@media ( min-width: 481px ) and ( max-width: 1200px ) {
+
+  /* woocommerce */
+  .woocommerce {
+    ul {
+      &.products {
+        &.columns-3,
+        &.columns-4,
+        &.columns-5 {
+          li {
+            &.product {
+              @include flex(0 0 33.333333%);
+              width: 33.333333%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media ( max-width: 575px ) {
+
+  .comment-form {
+    .comment-fields-row {
+      margin-bottom: 0;
+    }
+    .form-comment-item {
+      margin-bottom: 15px;
+    }
+  }
+
+}
+
+@media ( max-width: 480px ) {
+
+  .comments-area {
+    .comment-list {
+      li {
+        .comment-body {
+          margin-bottom: 15px;
+
+          .comment-meta {
+            padding-left: 15px;
+          }
+        }
+      }
+    }
+    ul {
+      li {
+        ul {
+          &.children {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  /* woocommerce */
+  .woocommerce {
+    ul {
+      &.products {
+        &.columns-3,
+        &.columns-4,
+        &.columns-5 {
+          li {
+            &.product {
+              @include flex(0 0 50%);
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

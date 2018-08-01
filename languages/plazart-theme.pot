@@ -1,0 +1,262 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Text in function
+#: event_conference/functions.php:511
+msgid "&nbsp;"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#. Text in echo
+#: event_conference/template-parts/inc-breadcrumb.php:4
+msgid "Archives"
+msgstr ""
+
+#. Text in function
+#: event_conference/template-parts/post/content-info.php:39
+msgid "Author:"
+msgstr ""
+
+#. Text in echo
+#: event_conference/template-parts/post/content-info.php:131
+msgid "Category: "
+msgstr ""
+
+#. Text in echo
+#: event_conference/functions.php:313
+msgid "Comment navigation"
+msgstr ""
+
+#. Text in echo
+#: event_conference/comments.php:73
+msgid "Comments are closed."
+msgstr ""
+
+#. Text in function
+#: event_conference/template-parts/post/content-info.php:47
+msgid "Comments:"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Dismiss this notice"
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Display footer column 1 on all page."
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Display footer column 2 on all page."
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Display footer column 3 on all page."
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Display footer column 4 on all page."
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Display sidebar right or left on all page."
+msgstr ""
+
+#. Text in function
+#: event_conference/template-parts/inc-breadcrumb.php:4
+msgid "Error 404 - Page Not Found"
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Footer 1"
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Footer 2"
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Footer 3"
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Footer 4"
+msgstr ""
+
+#. Text in function
+#: event_conference/404.php:31
+msgid "Go to the Home Page"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Install Plugins"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Install Required Plugins"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. Text in echo
+#: event_conference/search.php:74
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:316
+msgid "Newer Comments"
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:511
+msgid "Next"
+msgstr ""
+
+#. Text in echo
+#: event_conference/search.php:52
+msgid "No Data"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:316
+msgid "Older Comments"
+msgstr ""
+
+#. Text in function
+#: event_conference/page.php:10
+#: event_conference/template-parts/post/content-info.php:82
+#: event_conference/template-parts/post/content-info.php:131
+msgid "Pages:"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Plugin activated successfully."
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#. Text in echo
+#: event_conference/template-parts/post/content-info.php:43
+msgid "Post date: "
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:511
+msgid "Previous"
+msgstr ""
+
+#. Text in function
+#: event_conference/template-parts/post/content-info.php:129
+msgid "Read more"
+msgstr ""
+
+#. Text in function
+#: event_conference/search.php:60
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Return to the Dashboard"
+msgstr ""
+
+#. Text in echo
+#: event_conference/template-parts/post/content-info.php:102
+msgid "Share this post:"
+msgstr ""
+
+#. Text in function
+#: event_conference/functions.php:1
+msgid "Sidebar"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. Text in echo
+#: event_conference/search.php:66
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#. Text in echo
+#: event_conference/template-parts/post/content-info.php:91
+msgid "Tag: "
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Update Required"
+msgstr ""
+
+#. Text in function
+#: event_conference/plugins/class-tgm-plugin-activation.php:1
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#. Text in function
+#: event_conference/template-parts/post/content-info.php:51
+msgid "Views: "
+msgstr ""
+
+#. Text in echo
+#: event_conference/template-parts/inc-loading.php:15
+#: event_conference/template-parts/inc-loading.php:19
+msgid "loading..."
+msgstr ""
