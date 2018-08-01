@@ -113,6 +113,9 @@ if ( did_action( 'elementor/loaded' ) ) :
 
 endif;
 
+/* Require Post Type */
+require get_parent_theme_file_path( '/extension/post-type/events.php' );
+
 /* Require Widgets */
 foreach(glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $event_conference_file_widgets ) {
     require $event_conference_file_widgets;
