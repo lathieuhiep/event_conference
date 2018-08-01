@@ -1,0 +1,17 @@
+.element-events {
+  .element-events__item {
+    margin-bottom: 15px;
+  }
+  .element-events__item--content {
+    padding: 10px;
+    background-color: #ffffff;
+  }
+  .element-events__item--title {
+    font-size: 14px;
+    line-height: 1.5em;
+
+    a {
+      color: $color-title;
+    }
+  }
+}

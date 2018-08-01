@@ -9,9 +9,10 @@ body {
   line-height: 1.8em;
   overflow-x: hidden;
   font-size: 14px;
-  color: $color-primary;
+  color: $color-text;
   font-family: $font-family-text;
   font-weight: $font-weight-regular;
+  background-color: $background-body;
   @include flexbox();
   @include flex-direction(column);
 }
@@ -24,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
   color: $color-title;
 }
 a {
-  color: $color-primary;
+  color: $color-text;
   @include transition(all 0.4s ease-in-out);
 
   &:hover,
