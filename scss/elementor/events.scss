@@ -1,17 +1,127 @@
 .element-events {
+  .element-events__title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 50%;
+      width: 190px;
+      height: 3px;
+      background-color: $color-title;
+      @include transform(translateX(-50%));
+    }
+  }
+  .col-item {
+    margin-bottom: 30px;
+    @include flexbox();
+  }
   .element-events__item {
-    margin-bottom: 15px;
+    @include flexbox();
+    @include flex-direction(column);
   }
   .element-events__item--content {
     padding: 10px;
     background-color: #ffffff;
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex(1 auto);
   }
   .element-events__item--title {
     font-size: 14px;
     line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+    margin-bottom: 5px;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
 
     a {
       color: $color-title;
+    }
+  }
+  .element-events__item--box {
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex(1 auto);
+
+    .title-box {
+      position: relative;
+      font-size: 14px;
+      color: $color-text;
+      font-weight: 400;
+      margin-bottom: 5px;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: $color-text;
+        left: 0;
+        top: 50%;
+        margin-top: 0.5px;
+      }
+      span {
+        position: relative;
+        display: inline-block;
+        padding: 0 10px;
+        background-color: #ffffff;
+        z-index: 2;
+      }
+    }
+  }
+  .meta-address {
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+  .meta-bottom {
+    font-size: 13px;
+    margin-top: 20px;
+    @include flex(1 auto);
+
+    p {
+      margin: 0;
+    }
+  }
+}
+.element-events__filter {
+  margin-bottom: 15px;
+
+  span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+    padding-right: 15px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2em;
+    @include transition(all 0.4s ease-in-out);
+
+    &:after {
+      position: absolute;
+      content: '';
+      right: 0;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background-color: #888;
+    }
+    &:hover {
+      color: $color-title;
+    }
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+
+      &:after {
+        display: none;
+      }
     }
   }
 }
