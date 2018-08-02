@@ -36,9 +36,6 @@
     height: 3em;
     overflow: hidden;
     margin-bottom: 5px;
-    @include flexbox();
-    @include align-items(center);
-    @include justify-content(center);
 
     a {
       color: $color-title;
