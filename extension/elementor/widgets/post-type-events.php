@@ -22,6 +22,10 @@ class event_conference_post_type_events extends Widget_Base {
         return ' eicon-post';
     }
 
+    public function get_script_depends() {
+        return ['event_conference-events-ajax'];
+    }
+
     protected function _register_controls() {
 
         $this->start_controls_section(
@@ -135,7 +139,7 @@ class event_conference_post_type_events extends Widget_Base {
                     array(
                         'taxonomy'  =>  'event_cat',
                         'field'     =>  'id',
-                        'terms'     =>   $cat_post_event
+                        'terms'     =>   $cat_post_event[0]
                     )
                 )
             );
@@ -158,26 +162,101 @@ class event_conference_post_type_events extends Widget_Base {
         ?>
 
             <div class="element-events">
-                <div class="row">
-                    <?php while ( $event_conference_post_type_events_query->have_posts() ): $event_conference_post_type_events_query->the_post(); ?>
+                <?php if ( $settings['post_type_events_title'] ) : ?>
 
-                       <div class="col-12 col-sm-6 col-md-4 <?php echo esc_attr( $class_column_number ); ?> element-events__item">
-                           <figure class="element-events__item--img">
-                               <a href="<?php the_permalink(); ?>">
-                                   <?php the_post_thumbnail( 'large' ); ?>
-                               </a>
-                           </figure>
+                    <h2 class="element-events__title text-center">
+                        <?php echo esc_html( $settings['post_type_events_title'] ); ?>
+                    </h2>
 
-                           <div class="element-events__item--content">
-                               <h3 class="element-events__item--title text-center">
-                                   <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
-                                       <?php the_title(); ?>
-                                   </a>
-                               </h3>
+                <?php endif; ?>
+
+                <?php if ( !empty( $cat_post_event ) ) : ?>
+
+                    <div class="element-events__filter text-center">
+                        <?php
+                        foreach ( $cat_post_event as $item ) :
+                            $term = get_term( $item, 'event_cat' );
+                        ?>
+
+                            <span class="element-events__filter--btn" data-event-cat="<?php echo esc_attr( $term->term_id ); ?>">
+                                <?php echo esc_attr( $term->name ); ?>
+                            </span>
+
+                        <?php endforeach; ?>
+
+                        <span class="element-events__filter--btn" data-event-cat="0">
+                            <?php esc_html_e('Tất cả', 'event_conference' ); ?>
+                        </span>
+
+                    </div>
+
+                <?php endif; ?>
+
+                <div class="element-events__content">
+                    <div class="row">
+                        <?php
+                        while ( $event_conference_post_type_events_query->have_posts() ):
+                            $event_conference_post_type_events_query->the_post();
+
+                            $event_conference_post_event_address = rwmb_meta( 'event_conference_post_event_address' );
+                            $event_conference_post_event_scale = rwmb_meta( 'event_conference_post_event_scale' );
+                            $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time' );
+                        ?>
+
+                           <div class="col-12 col-sm-6 col-md-4 <?php echo esc_attr( $class_column_number ); ?> col-item">
+                               <div class="element-events__item">
+                                   <figure class="element-events__item--img">
+                                       <a href="<?php the_permalink(); ?>">
+                                           <?php the_post_thumbnail( 'large' ); ?>
+                                       </a>
+                                   </figure>
+
+                                   <div class="element-events__item--content">
+                                       <h3 class="element-events__item--title text-center">
+                                           <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
+                                               <?php the_title(); ?>
+                                           </a>
+                                       </h3>
+
+                                       <div class="element-events__item--box">
+                                           <h4 class="title-box text-center">
+                                               <span>
+                                                   <?php esc_html_e( 'Tổ chức sự kiện' ) ?>
+                                               </span>
+                                           </h4>
+
+                                           <p class="meta-address">
+                                               <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                               <strong>
+                                                   <?php esc_html_e( 'Địa Điểm:', 'event_conference' ); ?>
+                                               </strong>
+                                               <?php echo esc_html( $event_conference_post_event_address ); ?>
+                                           </p>
+
+                                           <div class="meta-bottom d-flex justify-content-between align-items-end">
+                                               <p class="meta-scale">
+                                                   <i class="fa fa-users" aria-hidden="true"></i>
+                                                   <strong>
+                                                       <?php esc_html_e( 'Quy mô:', 'event_conference' ); ?>
+                                                   </strong>
+                                                   <?php echo esc_html( $event_conference_post_event_scale ); ?>
+                                               </p>
+
+                                               <p class="meta-time">
+                                                   <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                   <strong>
+                                                       <?php esc_html_e( 'Thời gian:', 'event_conference' ); ?>
+                                                   </strong>
+                                                   <?php echo esc_html( $event_conference_post_event_time ); ?>
+                                               </p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
                            </div>
-                       </div>
 
-                    <?php endwhile; wp_reset_postdata(); ?>
+                        <?php endwhile; wp_reset_postdata(); ?>
+                    </div>
                 </div>
             </div>
 

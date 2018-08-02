@@ -13,7 +13,7 @@
     $( window ).on( 'elementor/frontend/init', function() {
 
         /* Element slider */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/event_conference-slides.default', ElementCarouselSlider  );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/event_conference_slides.default', ElementCarouselSlider  );
 
     } );
 
