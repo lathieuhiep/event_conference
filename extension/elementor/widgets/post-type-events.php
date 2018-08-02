@@ -6,6 +6,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class event_conference_post_type_events extends Widget_Base {
 
+    public function __construct(array $data = [], array $args = null)
+    {
+        parent::__construct($data, $args);
+
+        add_action( 'elementor/frontend/after_enqueue_styles', [$this, 'admin_enqueue_scripts'] );
+    }
+
     public function get_categories() {
         return array( 'event_conference_widgets' );
     }
@@ -22,8 +29,18 @@ class event_conference_post_type_events extends Widget_Base {
         return ' eicon-post';
     }
 
-    public function get_script_depends() {
-        return ['event_conference-events-ajax'];
+    public function admin_enqueue_scripts() {
+
+        /* Start Element Template js */
+
+        /* End Element Template js */
+
+        $event_conference_events_admin_url  =   admin_url('admin-ajax.php');
+        $event_conference_get_events        =   array( 'url' => $event_conference_events_admin_url );
+        wp_localize_script( 'event_conference_events_ajax', 'event_conference_load_events', $event_conference_get_events );
+
+        wp_enqueue_script( 'event_conference_events_ajax', get_theme_file_uri( '/js/events-ajax.js' ), array(), '', true );
+
     }
 
     protected function _register_controls() {
@@ -128,6 +145,13 @@ class event_conference_post_type_events extends Widget_Base {
             $class_column_number = 'col-lg-4';
         endif;
 
+        $event_conference_settings =   [
+            'column'    =>  $column_number,
+            'limit'     =>  $limit_post,
+            'orderby'   =>  $order_by_post,
+            'order'     =>  $order_post,
+        ];
+
         if ( !empty( $cat_post_event ) ) :
 
             $event_conference_post_type_events_arg = array(
@@ -161,7 +185,7 @@ class event_conference_post_type_events extends Widget_Base {
 
         ?>
 
-            <div class="element-events">
+            <div class="element-events" data-settings='<?php echo esc_attr( wp_json_encode( $event_conference_settings ) ); ?>'>
                 <?php if ( $settings['post_type_events_title'] ) : ?>
 
                     <h2 class="element-events__title text-center">
@@ -178,7 +202,7 @@ class event_conference_post_type_events extends Widget_Base {
                             $term = get_term( $item, 'event_cat' );
                         ?>
 
-                            <span class="element-events__filter--btn" data-event-cat="<?php echo esc_attr( $term->term_id ); ?>">
+                            <span class="element-events__filter--btn<?php echo ( $cat_post_event[0] == $term->term_id ? ' active' : '' ); ?>" data-event-cat="<?php echo esc_attr( $term->term_id ); ?>">
                                 <?php echo esc_attr( $term->name ); ?>
                             </span>
 
@@ -192,71 +216,72 @@ class event_conference_post_type_events extends Widget_Base {
 
                 <?php endif; ?>
 
-                <div class="element-events__content">
-                    <div class="row">
-                        <?php
-                        while ( $event_conference_post_type_events_query->have_posts() ):
-                            $event_conference_post_type_events_query->the_post();
+                <div class="row element-events__content">
+                    <?php
+                    while ( $event_conference_post_type_events_query->have_posts() ):
+                        $event_conference_post_type_events_query->the_post();
 
-                            $event_conference_post_event_address = rwmb_meta( 'event_conference_post_event_address' );
-                            $event_conference_post_event_scale = rwmb_meta( 'event_conference_post_event_scale' );
-                            $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time' );
-                        ?>
+                        $event_conference_post_event_address = rwmb_meta( 'event_conference_post_event_address' );
+                        $event_conference_post_event_scale = rwmb_meta( 'event_conference_post_event_scale' );
+                        $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time' );
+                    ?>
 
-                           <div class="col-12 col-sm-6 col-md-4 <?php echo esc_attr( $class_column_number ); ?> col-item">
-                               <div class="element-events__item">
-                                   <figure class="element-events__item--img">
-                                       <a href="<?php the_permalink(); ?>">
-                                           <?php the_post_thumbnail( 'large' ); ?>
+                       <div class="col-12 col-sm-6 col-md-4 <?php echo esc_attr( $class_column_number ); ?> col-item">
+                           <div class="element-events__item">
+                               <figure class="element-events__item--img">
+                                   <a href="<?php the_permalink(); ?>">
+                                       <?php the_post_thumbnail( 'large' ); ?>
+                                   </a>
+                               </figure>
+
+                               <div class="element-events__item--content">
+                                   <h3 class="element-events__item--title text-center">
+                                       <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
+                                           <?php the_title(); ?>
                                        </a>
-                                   </figure>
+                                   </h3>
 
-                                   <div class="element-events__item--content">
-                                       <h3 class="element-events__item--title text-center">
-                                           <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
-                                               <?php the_title(); ?>
-                                           </a>
-                                       </h3>
+                                   <div class="element-events__item--box">
+                                       <h4 class="title-box text-center">
+                                           <span>
+                                               <?php esc_html_e( 'Tổ chức sự kiện' ) ?>
+                                           </span>
+                                       </h4>
 
-                                       <div class="element-events__item--box">
-                                           <h4 class="title-box text-center">
-                                               <span>
-                                                   <?php esc_html_e( 'Tổ chức sự kiện' ) ?>
-                                               </span>
-                                           </h4>
+                                       <p class="meta-address">
+                                           <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                           <strong>
+                                               <?php esc_html_e( 'Địa Điểm:', 'event_conference' ); ?>
+                                           </strong>
+                                           <?php echo esc_html( $event_conference_post_event_address ); ?>
+                                       </p>
 
-                                           <p class="meta-address">
-                                               <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                       <div class="meta-bottom d-flex justify-content-between align-items-end">
+                                           <p class="meta-scale">
+                                               <i class="fa fa-users" aria-hidden="true"></i>
                                                <strong>
-                                                   <?php esc_html_e( 'Địa Điểm:', 'event_conference' ); ?>
+                                                   <?php esc_html_e( 'Quy mô:', 'event_conference' ); ?>
                                                </strong>
-                                               <?php echo esc_html( $event_conference_post_event_address ); ?>
+                                               <?php echo esc_html( $event_conference_post_event_scale ); ?>
                                            </p>
 
-                                           <div class="meta-bottom d-flex justify-content-between align-items-end">
-                                               <p class="meta-scale">
-                                                   <i class="fa fa-users" aria-hidden="true"></i>
-                                                   <strong>
-                                                       <?php esc_html_e( 'Quy mô:', 'event_conference' ); ?>
-                                                   </strong>
-                                                   <?php echo esc_html( $event_conference_post_event_scale ); ?>
-                                               </p>
-
-                                               <p class="meta-time">
-                                                   <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                                   <strong>
-                                                       <?php esc_html_e( 'Thời gian:', 'event_conference' ); ?>
-                                                   </strong>
-                                                   <?php echo esc_html( $event_conference_post_event_time ); ?>
-                                               </p>
-                                           </div>
+                                           <p class="meta-time">
+                                               <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                               <strong>
+                                                   <?php esc_html_e( 'Thời gian:', 'event_conference' ); ?>
+                                               </strong>
+                                               <?php echo esc_html( $event_conference_post_event_time ); ?>
+                                           </p>
                                        </div>
                                    </div>
                                </div>
                            </div>
+                       </div>
 
-                        <?php endwhile; wp_reset_postdata(); ?>
-                    </div>
+                    <?php
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
                 </div>
             </div>
 

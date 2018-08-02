@@ -111,6 +111,8 @@ if ( did_action( 'elementor/loaded' ) ) :
      */
     require get_parent_theme_file_path( '/extension/elementor/elementor.php' );
 
+    require get_parent_theme_file_path( '/extension/elementor/function-elementor.php' );
+
 endif;
 
 /* Require Post Type */
