@@ -133,21 +133,20 @@
     }
   }
 }
-.popIn {
-  -webkit-animation: popIn .5s;
-  -moz-animation:    popIn .5s;
-  -o-animation:      popIn .5s;
-  animation:         popIn .5s;
-}
-@-webkit-keyframes popIn {
-  from {transform: scale(0.85); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
-}
-@-moz-keyframes popIn {
-  from {transform: scale(0.85); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
-}
-@-o-keyframes popIn {
-  from {transform: scale(0.85); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
+.element-events__pagination {
+  &.top-pagination {
+    margin-bottom: 15px;
+  }
+  &.hide {
+    display: none;
+  }
+  span {
+    display: inline-block;
+    font-size: 45px;
+    cursor: pointer;
+
+    i.fa {
+      line-height: inherit;
+    }
+  }
 }

@@ -145,13 +145,6 @@ class event_conference_post_type_events extends Widget_Base {
             $class_column_number = 'col-lg-4';
         endif;
 
-        $event_conference_settings =   [
-            'column'    =>  $column_number,
-            'limit'     =>  $limit_post,
-            'orderby'   =>  $order_by_post,
-            'order'     =>  $order_post,
-        ];
-
         if ( !empty( $cat_post_event ) ) :
 
             $event_conference_post_type_events_arg = array(
@@ -183,9 +176,20 @@ class event_conference_post_type_events extends Widget_Base {
 
         if ( $event_conference_post_type_events_query->have_posts() ) :
 
+            $events_item_count = $event_conference_post_type_events_query->found_posts;
+
+            $total_post_events = wp_count_posts( 'event' )->publish;
+
+            $event_conference_settings =   [
+                'column' =>  $column_number,
+                'limit' =>  $limit_post,
+                'orderby' =>  $order_by_post,
+                'order' =>  $order_post
+            ];
+
         ?>
 
-            <div class="element-events" data-settings='<?php echo esc_attr( wp_json_encode( $event_conference_settings ) ); ?>'>
+            <div class="element-events" <?php echo ( !empty( $cat_post_event ) ? 'data-settings="'. esc_attr( wp_json_encode( $event_conference_settings ) ) .'"' : '' ); ?>>
                 <?php if ( $settings['post_type_events_title'] ) : ?>
 
                     <h2 class="element-events__title text-center">
@@ -198,20 +202,31 @@ class event_conference_post_type_events extends Widget_Base {
 
                     <div class="element-events__filter text-center">
                         <?php
+
                         foreach ( $cat_post_event as $item ) :
                             $term = get_term( $item, 'event_cat' );
                         ?>
 
-                            <span class="element-events__filter--btn<?php echo ( $cat_post_event[0] == $term->term_id ? ' active' : '' ); ?>" data-event-cat="<?php echo esc_attr( $term->term_id ); ?>">
+                            <span class="element-events__filter--btn<?php echo ( $cat_post_event[0] == $term->term_id ? ' active' : '' ); ?>" data-event-cat="<?php echo esc_attr( $term->term_id ); ?>" data-total-res="<?php echo esc_attr( $term->count ); ?>" data-total-item="<?php echo esc_attr( $term->count ) ?>">
                                 <?php echo esc_attr( $term->name ); ?>
                             </span>
 
                         <?php endforeach; ?>
 
-                        <span class="element-events__filter--btn" data-event-cat="0">
+                        <span class="element-events__filter--btn" data-event-cat="0" data-total-res="<?php echo esc_attr( $total_post_events ); ?>" data-total-item="<?php echo esc_attr( $total_post_events ); ?>">
                             <?php esc_html_e('Tất cả', 'event_conference' ); ?>
                         </span>
 
+                    </div>
+
+                <?php endif; ?>
+
+                <?php if ( !empty( $cat_post_event ) ) : ?>
+
+                    <div class="element-events__pagination top-pagination text-center hide">
+                        <span class="element-events__prev" data-prev-page="0">
+                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                        </span>
                     </div>
 
                 <?php endif; ?>
@@ -283,6 +298,20 @@ class event_conference_post_type_events extends Widget_Base {
                     wp_reset_postdata();
                     ?>
                 </div>
+
+                <?php if ( !empty( $cat_post_event ) ) : ?>
+
+                    <div class="element-events__pagination bottom-pagination text-center<?php echo ( $events_item_count <= $limit_post ? esc_attr( ' hide' ) : '' ); ?>">
+                        <p>
+                            <?php esc_html_e( 'Xem thêm tin khác', 'event_conference' ); ?>
+                        </p>
+
+                        <span class="element-events__next" data-next-page="2">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                <?php endif; ?>
             </div>
 
         <?php

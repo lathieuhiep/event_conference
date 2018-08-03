@@ -7,12 +7,13 @@ add_action( 'wp_ajax_event_conference_get_ajax_events_item', 'event_conference_g
 add_action( 'wp_ajax_nopriv_event_conference_get_ajax_events_item', 'event_conference_get_ajax_events_item' );
 
 function event_conference_get_ajax_events_item() {
-    
-    $event_conference_event_column  =   $_POST['event_column'];
-    $event_conference_event_cat_id  =   $_POST['event_cat_id'];
-    $event_conference_limit         =   $_POST['event_limit'];
-    $event_conference_orderby       =   $_POST['event_orderby'];
-    $event_conference_order         =   $_POST['event_order'];
+
+    $event_conference_event_next_prev   =   empty( $_POST['event_next_prev'] ) ? 1 : $_POST['event_next_prev'];
+    $event_conference_event_column      =   $_POST['event_column'];
+    $event_conference_event_cat_id      =   $_POST['event_cat_id'] == 'NaN' ? 0 : $_POST['event_cat_id'];
+    $event_conference_limit             =   $_POST['event_limit'];
+    $event_conference_orderby           =   $_POST['event_orderby'];
+    $event_conference_order             =   $_POST['event_order'];
 
     if ( $event_conference_event_column == 4 ) :
         $class_column_number = 'col-lg-3';
@@ -27,6 +28,7 @@ function event_conference_get_ajax_events_item() {
             'posts_per_page'    =>  $event_conference_limit,
             'orderby'           =>  $event_conference_orderby,
             'order'             =>  $event_conference_order,
+            'paged'             =>  $event_conference_event_next_prev,
             'tax_query'         =>  array(
                 array(
                     'taxonomy'  =>  'event_cat',
@@ -42,7 +44,8 @@ function event_conference_get_ajax_events_item() {
             'post_type'         =>  'event',
             'posts_per_page'    =>  $event_conference_limit,
             'orderby'           =>  $event_conference_orderby,
-            'order'             =>  $event_conference_order
+            'order'             =>  $event_conference_order,
+            'paged'             =>  $event_conference_event_next_prev,
         );
 
     endif;
