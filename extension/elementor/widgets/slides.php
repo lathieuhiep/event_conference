@@ -610,7 +610,7 @@ class event_conference_widget_slides extends Widget_Base {
         $this->add_control(
             'description_color',
             [
-                'label' => esc_html__( 'Text Color', 'event_conference' ),
+                'label' => esc_html__( 'Description Color', 'event_conference' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--description' => 'color: {{VALUE}}',

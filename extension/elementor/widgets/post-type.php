@@ -25,9 +25,9 @@ class event_conference_post_type extends Widget_Base {
     protected function _register_controls() {
 
         $this->start_controls_section(
-            'section_post_type',
+            'section_post_heading',
             [
-                'label' =>  esc_html__( 'Post Type', 'event_conference' )
+                'label' =>  esc_html__( 'Title', 'event_conference' )
             ]
         );
 
@@ -36,8 +36,56 @@ class event_conference_post_type extends Widget_Base {
             [
                 'label'         =>  esc_html__( 'Title', 'event_conference' ),
                 'type'          =>  Controls_Manager::TEXT,
-                'default'       =>  esc_html__( 'Post', 'event_conference' ),
+                'default'       =>  esc_html__( 'Title', 'event_conference' ),
                 'label_block'   =>  true
+            ]
+        );
+
+        $this->add_control(
+            'post_type_sub_title',
+            [
+                'label'         =>  esc_html__( 'Sub Title', 'event_conference' ),
+                'type'          =>  Controls_Manager::TEXT,
+                'default'       =>  esc_html__( 'Sub title', 'event_conference' ),
+                'label_block'   =>  true
+            ]
+        );
+
+        $this->add_control(
+            'post_type_description',
+            [
+                'label'         =>  esc_html__( 'Description', 'event_conference' ),
+                'type'          =>  Controls_Manager::TEXTAREA,
+                'default'       =>  esc_html__( 'Item content. Click the edit button to change this text.', 'event_conference' ),
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_post_popup_video',
+            [
+                'label' =>  esc_html__( 'Popup Video', 'event_conference' )
+            ]
+        );
+
+        $this->add_control(
+            'background_popup_video',
+            [
+                'label'     =>  esc_html__( 'Background Video', 'event_conference' ),
+                'type'      =>  Controls_Manager::MEDIA,
+                'default'   =>  [
+                    'url'   =>  Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_get_post',
+            [
+                'label' =>  esc_html__( 'Post', 'event_conference' )
             ]
         );
 
@@ -116,10 +164,21 @@ class event_conference_post_type extends Widget_Base {
     protected function render() {
 
         $settings       =   $this->get_settings_for_display();
+        $column_number  =   $settings['post_type__column_number'];
         $cat_post       =   $settings['post_type_select_cat'];
         $limit_post     =   $settings['post_type_limit'];
         $order_by_post  =   $settings['post_type_order_by'];
         $order_post     =   $settings['post_type_order'];
+
+        if ( $column_number == 4 ) :
+            $class_column_number = 'col-lg-3';
+        elseif ( $column_number == 3 ) :
+            $class_column_number = 'col-lg-4';
+        elseif ( $column_number == 2 ) :
+            $class_column_number = 'col-lg-6';
+        else:
+            $class_column_number = 'col-lg-12';
+        endif;
 
         if ( !empty( $cat_post ) ) :
 
@@ -148,16 +207,56 @@ class event_conference_post_type extends Widget_Base {
 
     ?>
 
-        <div class="elementor-post-type">
+        <div class="element-post-type">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="element-post-type__top">
+                        <h2 class="heading">
+                            <?php echo esc_html( $settings['post_type_title'] ); ?>
 
-            <?php while ( $event_conference_post_type_query->have_posts() ): $event_conference_post_type_query->the_post(); ?>
+                            <span><?php echo esc_html( $settings['post_type_sub_title'] ); ?></span>
+                        </h2>
 
-                <h3>
-                    <?php the_title(); ?>
-                </h3>
+                        <?php if ( $settings['post_type_description'] ) : ?>
+                            <p class="description">
+                                <?php echo esc_html( $settings['post_type_description'] ); ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+                </div>
 
-            <?php endwhile; wp_reset_postdata(); ?>
+                <div class="col-lg-4">
+                    <div class="element-post-type__video">
+                        <figure class="element-post-type__video--image">
+                            <?php echo wp_get_attachment_image( $settings['background_popup_video']['id'], 'large' ); ?>
+                        </figure>
 
+                        <a class="btn-popup-video d-flex  align-items-center justify-content-center" href="#">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <?php while ( $event_conference_post_type_query->have_posts() ): $event_conference_post_type_query->the_post(); ?>
+
+                    <div class="col-12 col-sm-6 col-md-4 <?php echo esc_attr( $class_column_number ); ?> element-post-type__item">
+                        <figure class="element-post-type__item--image">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_post_thumbnail( 'large' ); ?>
+                            </a>
+                        </figure>
+
+                        <h3 class="element-post-type__item--title">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </h3>
+                    </div>
+
+                <?php endwhile; wp_reset_postdata(); ?>
+            </div>
         </div>
 
     <?php

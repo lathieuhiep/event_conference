@@ -369,7 +369,7 @@ if ( ! function_exists( 'event_conference_fonts_url' ) ) :
             $event_conference_font_families = array();
 
             if ( 'off' !== $event_conference_font_google ) {
-                $event_conference_font_families[] = 'Roboto:400,700';
+                $event_conference_font_families[] = 'Roboto:400,500,700';
             }
 
             $event_conference_query_args = array(

@@ -1,0 +1,30 @@
+.element-intro {
+  .element-intro__heading {
+    font-size: 20px;
+    font-weight: 500;
+
+    strong {
+      font-size: 25px;
+    }
+  }
+  .element-intro__list--item {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .element-intro__list--title {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+  .element-intro__list--sub-title {
+    color: $color-title;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .element-intro__list--description {
+    color: $color-text;
+    font-size: 12px;
+  }
+}

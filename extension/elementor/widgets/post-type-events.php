@@ -26,7 +26,7 @@ class event_conference_post_type_events extends Widget_Base {
     }
 
     public function get_icon() {
-        return ' eicon-post';
+        return 'fa fa-calendar';
     }
 
     public function admin_enqueue_scripts() {
