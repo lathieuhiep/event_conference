@@ -5,7 +5,7 @@
     $event_conference_information_show_hide = $event_conference_options['event_conference_information_show_hide'] == '' ? 1 : $event_conference_options['event_conference_information_show_hide'];
 ?>
 
-<header id="home" class="header">
+<header id="home" class="header" style="background-image: ">
     <nav id="navigation" class="navbar-expand-lg">
 
         <?php
