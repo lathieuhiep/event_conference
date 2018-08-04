@@ -219,14 +219,14 @@ pre {
         display: block;
         width: 10px;
         height: 10px;
-        background-color: #000000;
+        background-color: #888888;
         @include border-radius(50%);
         @include transition(all 0.2s ease-in-out);
       }
       &.active,
       &:hover {
         span {
-          background-color: #ff5555;
+          background-color: #DEB400;
         }
       }
     }

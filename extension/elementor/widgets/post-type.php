@@ -19,7 +19,11 @@ class event_conference_post_type extends Widget_Base {
     }
 
     public function get_icon() {
-        return ' eicon-post';
+        return 'eicon-post';
+    }
+
+    public function get_script_depends() {
+        return ['lity'];
     }
 
     protected function _register_controls() {
@@ -77,6 +81,16 @@ class event_conference_post_type extends Widget_Base {
                 'default'   =>  [
                     'url'   =>  Utils::get_placeholder_image_src(),
                 ],
+            ]
+        );
+
+        $this->add_control(
+            'post_type_link_video',
+            [
+                'label'         =>  esc_html__( 'Link Video', 'event_conference' ),
+                'type'          =>  Controls_Manager::TEXT,
+                'default'       =>  '//www.youtube.com/watch?v=XSGBVzeBUbk',
+                'label_block'   =>  true
             ]
         );
 
@@ -159,6 +173,114 @@ class event_conference_post_type extends Widget_Base {
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'section_style_title',
+            [
+                'label' => esc_html__( 'Style Title', 'event_conference' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'title_color',
+            [
+                'label' => esc_html__( 'Title Color', 'event_conference' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-post-type__top .heading' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .element-post-type__top .heading:after' => 'background-color: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'description_color',
+            [
+                'label' => esc_html__( 'Description Color', 'event_conference' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-post-type__top .description' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style_popup_video',
+            [
+                'label' => esc_html__( 'Style Popup Video', 'event_conference' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'height_box_video',
+            [
+                'label' => esc_html__( 'Height Box', 'event_conference' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 1000,
+                    ],
+                ],
+                'default' => [
+                    'size' => '',
+                ],
+                'size_units' => [ 'px' ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-post-type__video .element-post-type__video--image' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+                'separator' => 'before',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style_post',
+            [
+                'label' => esc_html__( 'Style Post', 'event_conference' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'height_image_post',
+            [
+                'label' => esc_html__( 'Height Image Post', 'event_conference' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 1000,
+                    ],
+                ],
+                'default' => [
+                    'size' => '',
+                ],
+                'size_units' => [ 'px' ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-post-type .element-post-type__item--image a' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'title_color_post',
+            [
+                'label' => esc_html__( 'Title Color Post', 'event_conference' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-post-type .element-post-type__item--title a' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
     }
 
     protected function render() {
@@ -231,7 +353,7 @@ class event_conference_post_type extends Widget_Base {
                             <?php echo wp_get_attachment_image( $settings['background_popup_video']['id'], 'large' ); ?>
                         </figure>
 
-                        <a class="btn-popup-video d-flex  align-items-center justify-content-center" href="#">
+                        <a class="btn-popup-video d-flex  align-items-center justify-content-center" href="<?php echo esc_url( $settings['post_type_link_video'] ) ?>" data-lity>
                             <i class="fa fa-play" aria-hidden="true"></i>
                         </a>
                     </div>

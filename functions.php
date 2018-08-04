@@ -210,6 +210,10 @@ function event_conference_register_front_end() {
     wp_enqueue_style( 'owl-carousel', get_theme_file_uri( '/css/owl.carousel.min.css' ), array(), '2.3.4' );
     /* End Carousel Css */
 
+    /* Start Lity Css */
+    wp_enqueue_style( 'lity', get_theme_file_uri( '/css/lity.min.css' ), array(), '2.3.1' );
+    /* End Lity Css */
+
     /*  Start Style Css   */
     wp_enqueue_style( 'event_conference-style', get_stylesheet_uri() );
     /*  Start Style Css   */
@@ -243,6 +247,8 @@ function event_conference_register_front_end() {
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
+
+    wp_register_script( 'lity', get_theme_file_uri( '/js/lity.min.js' ), array(), '2.3.1', true );
 
     wp_enqueue_script( 'event_conference-custom', get_theme_file_uri( '/js/custom.js' ), array(), '1.0.0', true );
 
@@ -490,6 +496,13 @@ function event_conference_register_required_plugins() {
         array(
             'name'      =>  'Elementor',
             'slug'      =>  'elementor',
+            'required'  =>  true,
+        ),
+
+        // This is an example of how to include a plugin from the WordPress Plugin Repository
+        array(
+            'name'      =>  'Categories Images',
+            'slug'      =>  'categories-images',
             'required'  =>  true,
         ),
 
