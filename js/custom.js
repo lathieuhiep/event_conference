@@ -52,6 +52,14 @@
         $( document ).general_owlCarousel_item( '.site-post-slides' );
         /* End Gallery Single */
 
+        /* Start Gallery Single Event */
+        $( document ).general_owlCarousel_item( '.site-single-event__slides' );
+        /* End Gallery Single Event */
+
+        $('.site-single-event__gallery').mCustomScrollbar({
+            axis:'x'
+        });
+
     });
 
     $( window ).on( "load", function() {

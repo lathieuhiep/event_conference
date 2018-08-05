@@ -21,7 +21,9 @@
   ## Single
   ## Pagination
   ## Comment
-## Elementor
+# Events
+  ## Single Event
+# Elementor
   ## Slides
   ## Slides Category
   ## Post Type
@@ -312,6 +314,29 @@ pre {
 
 .owl-carousel .owl-dots .owl-dot.active span, .owl-carousel .owl-dots .owl-dot:hover span {
   background-color: #DEB400;
+}
+
+.owl-nav-absolute.owl-carousel .owl-nav {
+  margin: 0;
+}
+
+.owl-nav-absolute.owl-carousel .owl-nav .owl-prev,
+.owl-nav-absolute.owl-carousel .owl-nav .owl-next {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.owl-nav-absolute.owl-carousel .owl-nav .owl-prev {
+  left: 10px;
+}
+
+.owl-nav-absolute.owl-carousel .owl-nav .owl-next {
+  right: 10px;
 }
 
 /* =WordPress Core
@@ -1236,29 +1261,6 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
   margin-bottom: 30px;
 }
 
-.site-post-slides.owl-carousel .owl-nav {
-  margin: 0;
-}
-
-.site-post-slides.owl-carousel .owl-nav .owl-prev,
-.site-post-slides.owl-carousel .owl-nav .owl-next {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.site-post-slides.owl-carousel .owl-nav .owl-prev {
-  left: 10px;
-}
-
-.site-post-slides.owl-carousel .owl-nav .owl-next {
-  right: 10px;
-}
-
 .site-post-slides.owl-carousel .owl-dots {
   position: absolute;
   padding: 0;
@@ -1559,6 +1561,88 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 .comments-area .comment-list li ol.children {
   margin: 0;
   padding-left: 80px;
+}
+
+/**
+# Events
+-----------------------------------------------------------------------------*/
+/* Single Event */
+.site-single-event__slides .site-single-event__slides--item {
+  height: 600px;
+}
+
+.site-single-event__slides .site-single-event__slides--item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.site-single-event__main {
+  position: relative;
+}
+
+.site-single-event__main .g-line {
+  height: 150px;
+  background: linear-gradient(rgba(0, 0, 0, 0), #041026);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 6;
+}
+
+.site-single-event {
+  background-color: #041026;
+}
+
+.site-single-event .info {
+  padding: 15px 0;
+}
+
+.site-single-event .info .title {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.site-single-event .info-meta {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.site-single-event .info-meta span {
+  display: inline-block;
+}
+
+.site-single-event .info-meta span:after {
+  content: '-';
+}
+
+.site-single-event .info-meta span:last-child:after {
+  content: '';
+}
+
+.site-single-event .info-meta span i {
+  margin-right: 2px;
+}
+
+.site-single-event__gallery {
+  padding: 15px 0;
+  white-space: nowrap;
+  height: 180px;
+  width: 100%;
+}
+
+.site-single-event__gallery--item {
+  width: 220px;
+  height: 130px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.site-single-event__gallery--item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /**
