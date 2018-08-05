@@ -22,8 +22,11 @@
   ## Single
   ## Pagination
   ## Comment
-## Elementor
-  ## Slider
+# Events
+  ## Single Event
+# Elementor
+  ## Slides
+  ## Slides Category
   ## Post Type
   ## Intro
   ## Events
@@ -60,6 +63,11 @@
 # Blog
 -----------------------------------------------------------------------------*/
 @import "blog/blog";
+
+/**
+# Events
+-----------------------------------------------------------------------------*/
+@import "events/events";
 
 /**
 # Elementor

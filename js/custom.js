@@ -52,6 +52,20 @@
         $( document ).general_owlCarousel_item( '.site-post-slides' );
         /* End Gallery Single */
 
+        /* Start Gallery Single Event */
+        $( document ).general_owlCarousel_item( '.site-single-event__slides' );
+        /* End Gallery Single Event */
+
+        /* Start mCustomScrollbar single event gallery */
+        let site_single_event_gallery  = $( '.site-single-event__gallery' );
+
+        if ( site_single_event_gallery.length ) {
+            site_single_event_gallery.mCustomScrollbar({
+                axis:'x'
+            });
+        }
+        /* End mCustomScrollbar single event gallery */
+
     });
 
     $( window ).on( "load", function() {

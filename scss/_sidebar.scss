@@ -35,16 +35,10 @@ section {
       padding: 0;
 
       li {
-        border-bottom: 1px solid #eee;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
 
-        &:first-child {
-          padding-top: 0;
-        }
         &:last-child {
           padding-bottom: 0;
-          border-bottom: none;
         }
         a {
           display: block;

@@ -12,7 +12,7 @@ if( !empty( $event_conference_gallery_post ) ) :
 
 ?>
 
-    <div class="site-post-slides owl-carousel owl-theme" data-settings='<?php echo esc_attr( wp_json_encode( $event_conference_slider_settings ) ); ?>'>
+    <div class="site-post-slides owl-nav-absolute owl-carousel owl-theme" data-settings='<?php echo esc_attr( wp_json_encode( $event_conference_slider_settings ) ); ?>'>
 
         <?php foreach( $event_conference_gallery_post as $item ) : ?>
 

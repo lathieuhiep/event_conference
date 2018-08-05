@@ -274,7 +274,7 @@ Redux::setSection($event_conference_opt_name, array(
             'subtitle' => esc_html__('logo image for your website', 'event_conference'),
             'desc' => esc_html__('', 'event_conference'),
             'default' => false,
-            'output'  => '.header'
+            'output'  => '.header-relative'
         ),
     )
 ));
@@ -309,6 +309,13 @@ Redux::setSection($event_conference_opt_name, array(
                 'height' => '',
             ),
             'output' => array('.site-logo img'),
+        ),
+
+        array(
+            'id' => 'event_conference_logo_text_footer',
+            'type' => 'text',
+            'title' => esc_html__('Logo text footer', 'event_conference'),
+            'default' => 'Events',
         ),
     )
 ));
@@ -678,6 +685,25 @@ Redux::setSection($event_conference_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
+            'id' => 'event_conference_footer_background',
+            'type' => 'background',
+            'url' => true,
+            'title' => esc_html__('Footer background', 'event_conference' ),
+            'default' => false,
+            'output'  => '.site-footer__top'
+        ),
+    )
+
+));
+
+Redux::setSection($event_conference_opt_name, array(
+    'title' => esc_html__('Footer multi column 1', 'event_conference'),
+    'id' => 'event_conference_footer_multi_column_1',
+    'desc' => esc_html__('', 'event_conference'),
+    'subsection' => true,
+    'fields' => array(
+
+        array(
             'id' => 'event_conference_footer_column_col',
             'type' => 'image_select',
             'title' => esc_html__('Number of Footer Columns', 'event_conference'),
@@ -780,6 +806,122 @@ Redux::setSection($event_conference_opt_name, array(
                 array('event_conference_footer_column_col', '!=', '2'),
                 array('event_conference_footer_column_col', '!=', '3'),
                 array('event_conference_footer_column_col', '!=', '0'),
+            )
+        ),
+    )
+
+));
+
+Redux::setSection($event_conference_opt_name, array(
+    'title' => esc_html__('Footer multi column 2', 'event_conference'),
+    'id' => 'event_conference_footer_multi_column_2',
+    'desc' => esc_html__('', 'event_conference'),
+    'subsection' => true,
+    'fields' => array(
+
+        array(
+            'id' => 'event_conference_footer_column_col_2',
+            'type' => 'image_select',
+            'title' => esc_html__('Number of Footer Columns', 'event_conference'),
+            'subtitle' => esc_html__('Controls the number of columns in the footer', 'event_conference'),
+            'default' => 0,
+            'options' => array(
+                '0' => array(
+                    'alt' => 'No Footer',
+                    'img' => get_theme_file_uri('/extension/assets/images/no-footer.png')
+                ),
+
+                '1' => array(
+                    'alt' => '1 Columnn',
+                    'img' => get_theme_file_uri('/extension/assets/images/1column.png')
+                ),
+
+                '2' => array(
+                    'alt' => '2 Columnn',
+                    'img' => get_theme_file_uri('/extension/assets/images/2column.png')
+                ),
+                '3' => array(
+                    'alt' => '3 Columnn',
+                    'img' => get_theme_file_uri('/extension/assets/images/3column.png')
+                ),
+                '4' => array(
+                    'alt' => '4 Columnn',
+                    'img' => get_theme_file_uri('/extension/assets/images/4column.png')
+                ),
+            ),
+        ),
+
+        array(
+            'id' => 'event_conference_footer_column_w1_2',
+            'type' => 'slider',
+            'title' => esc_html__('Footer width 1', 'event_conference'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'event_conference'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'event_conference'),
+            'default' => 1,
+            'min' => 1,
+            'step' => 1,
+            'max' => 12,
+            'display_value' => 'label',
+            'required' => array(
+                array('event_conference_footer_column_col_2', 'equals', '1', '2', '3', '4'),
+                array('event_conference_footer_column_col_2', '!=', '0'),
+            )
+        ),
+
+        array(
+            'id' => 'event_conference_footer_column_w2_2',
+            'type' => 'slider',
+            'title' => esc_html__('Footer width 2', 'event_conference'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'event_conference'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'event_conference'),
+            'default' => 1,
+            'min' => 1,
+            'step' => 1,
+            'max' => 12,
+            'display_value' => 'label',
+            'required' => array(
+                array('event_conference_footer_column_col_2', 'equals', '2', '3', '4'),
+                array('event_conference_footer_column_col_2', '!=', '1'),
+                array('event_conference_footer_column_col_2', '!=', '0'),
+            )
+        ),
+
+        array(
+            'id' => 'event_conference_footer_column_w3_2',
+            'type' => 'slider',
+            'title' => esc_html__('Footer width 3', 'event_conference'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'event_conference'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'event_conference'),
+            'default' => 1,
+            'min' => 1,
+            'step' => 1,
+            'max' => 12,
+            'display_value' => 'label',
+            'required' => array(
+                array('event_conference_footer_column_col_2', 'equals', '3', '4'),
+                array('event_conference_footer_column_col_2', '!=', '1'),
+                array('event_conference_footer_column_col_2', '!=', '2'),
+                array('event_conference_footer_column_col_2', '!=', '0'),
+            )
+        ),
+
+        array(
+            'id' => 'event_conference_footer_column_w4_2',
+            'type' => 'slider',
+            'title' => esc_html__('Footer width 4', 'event_conference'),
+            'subtitle' => esc_html__('Select the number of columns to display in the footer', 'event_conference'),
+            'desc' => esc_html__('Min: 1, max: 12, default value: 1', 'event_conference'),
+            'default' => 1,
+            'min' => 1,
+            'step' => 1,
+            'max' => 12,
+            'display_value' => 'label',
+            'required' => array(
+                array('event_conference_footer_column_col_2', 'equals', '4'),
+                array('event_conference_footer_column_col_2', '!=', '1'),
+                array('event_conference_footer_column_col_2', '!=', '2'),
+                array('event_conference_footer_column_col_2', '!=', '3'),
+                array('event_conference_footer_column_col_2', '!=', '0'),
             )
         ),
     )

@@ -39,7 +39,7 @@ function event_conference_create_events() {
         'has_archive'        => true,
         'hierarchical'       => true,
         'menu_position'      => 5,
-        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+        'supports'           => array( 'title', 'thumbnail' ),
     );
 
     register_post_type('event', $args );

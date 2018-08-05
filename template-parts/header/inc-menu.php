@@ -3,10 +3,18 @@
 
     $event_conference_logo_image_id    =   $event_conference_options['event_conference_logo_image']['id'];
     $event_conference_information_show_hide = $event_conference_options['event_conference_information_show_hide'] == '' ? 1 : $event_conference_options['event_conference_information_show_hide'];
+
+    $event_conference_position_header = rwmb_meta( 'event_conference_position_header' );
+
+    if ( $event_conference_position_header == 2 ) :
+        $event_conference_class_position = 'header-absolute';
+    else:
+        $event_conference_class_position = 'header-relative';
+    endif;
 ?>
 
-<header id="home" class="header" style="background-image: ">
-    <nav id="navigation" class="navbar-expand-lg">
+<header id="home" class="header <?php echo esc_attr( $event_conference_class_position ); ?>">
+    <nav id="navigation" class="header-nav navbar-expand-lg">
 
         <?php
         if ( $event_conference_information_show_hide == 1 ) :
@@ -34,7 +42,6 @@
                     </div>
 
                     <div class="site-menu collapse navbar-collapse d-lg-flex justify-content-lg-end">
-
                         <?php
 
                         if ( has_nav_menu('primary') ) :
@@ -42,11 +49,9 @@
                             wp_nav_menu( array(
                                 'theme_location' => 'primary',
                                 'menu_class'     => 'navbar-nav',
-                                'container'      => false,
                             ) ) ;
 
                         else:
-
                         ?>
 
                             <ul class="main-menu">
@@ -58,7 +63,6 @@
                             </ul>
 
                         <?php endif; ?>
-
                     </div>
                 </div>
             </div>
