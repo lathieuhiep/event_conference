@@ -155,7 +155,27 @@ function event_conference_widgets_init() {
         'event_conference-footer-4'   =>  array(
             'name'              =>  esc_html__( 'Footer 4', 'event_conference' ),
             'description'       =>  esc_html__('Display footer column 4 on all page.', 'event_conference' )
-        )
+        ),
+
+        'event_conference-footer-1-2'   =>  array(
+            'name'              =>  esc_html__( 'Sub Footer 1', 'event_conference' ),
+            'description'       =>  esc_html__('Display footer column 1 on all page.', 'event_conference' )
+        ),
+
+        'event_conference-footer-2-2'   =>  array(
+            'name'              =>  esc_html__( 'Sub Footer 2', 'event_conference' ),
+            'description'       =>  esc_html__('Display footer column 2 on all page.', 'event_conference' )
+        ),
+
+        'event_conference-footer-3-2'   =>  array(
+            'name'              =>  esc_html__( 'Sub Footer 3', 'event_conference' ),
+            'description'       =>  esc_html__('Display footer column 3 on all page.', 'event_conference' )
+        ),
+
+        'event_conference-footer-4-2'   =>  array(
+            'name'              =>  esc_html__( 'Sub Footer 4', 'event_conference' ),
+            'description'       =>  esc_html__('Display footer column 4 on all page.', 'event_conference' )
+        ),
 
     );
 

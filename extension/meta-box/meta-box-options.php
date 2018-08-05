@@ -87,6 +87,27 @@ function event_conference_register_meta_boxes() {
     );
     /* End meta box post events */
 
+    /* Start meta box page */
+    $event_conference_meta_boxes[] = array(
+        'id'         => 'page_option',
+        'title'      => esc_html__( 'Page Option', 'event_conference' ),
+        'post_types' => array( 'page' ),
+        'context'    => 'side',
+        'priority'   => 'low',
+        'fields' => array(
+            array(
+                'name' => esc_html__( 'Position Header', 'event_conference' ),
+                'id' => 'event_conference_position_header',
+                'type' => 'select',
+                'options' => array(
+                    1 => 'Relative',
+                    2 => 'Absolute',
+                ),
+            ),
+        )
+    );
+    /* End meta box page */
+
     return $event_conference_meta_boxes;
 
 }

@@ -56,9 +56,15 @@
         $( document ).general_owlCarousel_item( '.site-single-event__slides' );
         /* End Gallery Single Event */
 
-        $('.site-single-event__gallery').mCustomScrollbar({
-            axis:'x'
-        });
+        /* Start mCustomScrollbar single event gallery */
+        let site_single_event_gallery  = $( '.site-single-event__gallery' );
+
+        if ( site_single_event_gallery.length ) {
+            site_single_event_gallery.mCustomScrollbar({
+                axis:'x'
+            });
+        }
+        /* End mCustomScrollbar single event gallery */
 
     });
 
