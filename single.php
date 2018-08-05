@@ -18,9 +18,9 @@ endif;
 ?>
 
 <div class="site-container site-single">
+    <?php get_template_part( 'template-parts/breadcrumb/single','breadcrumb' ); ?>
     <div class="container">
         <div class="row">
-
             <?php
 
             if( $event_conference_blog_sidebar_single == 'left' ):

@@ -208,11 +208,15 @@ function event_conference_register_front_end() {
 
     /* Start Carousel Css */
     wp_enqueue_style( 'owl-carousel', get_theme_file_uri( '/css/owl.carousel.min.css' ), array(), '2.3.4' );
-    /* End Carousel Css */
+    /* End Carousel Css */    /* Start Carousel Css */
 
     /*  Start Style Css   */
     wp_enqueue_style( 'event_conference-style', get_stylesheet_uri() );
     /*  Start Style Css   */
+
+    /* Start Hungkv style */
+    wp_enqueue_style( 'hungkv-style', get_theme_file_uri( '/hungkv-style.css' ), array(), true );
+    /* End Hungkv style */
 
     /*
     * End Get Css Front End
