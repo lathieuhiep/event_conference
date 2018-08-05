@@ -18,6 +18,13 @@
     width: 20%;
     background-color: #074c80;
   }
+  .element-post-type__item {
+    &:hover {
+      img {
+        opacity: 0.75;
+      }
+    }
+  }
   .element-post-type__item--image {
     a {
       display: block;
@@ -26,6 +33,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        @include transition(all 0.4s ease-in-out);
       }
     }
   }

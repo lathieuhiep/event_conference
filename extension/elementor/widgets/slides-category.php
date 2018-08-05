@@ -106,6 +106,38 @@ class event_conference_slides_category extends Widget_Base {
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'section_style_title',
+            [
+                'label' => esc_html__( 'Style', 'event_conference' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'title_color',
+            [
+                'label' => esc_html__( 'Title Color', 'event_conference' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides-cat .element-slides-cat__item--content .title' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'description_color',
+            [
+                'label' => esc_html__( 'Description Color', 'event_conference' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides-cat .element-slides-cat__item--content .description' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
     }
 
     protected function render() {
@@ -131,21 +163,17 @@ class event_conference_slides_category extends Widget_Base {
             ?>
 
                 <div class="element-slides-cat__item">
-                    <?php if (function_exists('z_taxonomy_image')) : ?>
+                    <a class="link-item" href="<?php echo esc_url( get_category_link( $term ) ); ?>" title="<?php echo esc_attr( $term->name ); ?>"></a>
 
-                        <div class="element-slides-cat__item--image">
-                            <a href="<?php echo esc_url( get_category_link( $term ) ); ?>" title="<?php echo esc_attr( $term->name ); ?>">
-                                <?php z_taxonomy_image( $term->term_id, 'medium_large' ); ?>
-                            </a>
-                        </div>
+                    <figure class="element-slides-cat__item--image">
+                        <?php if (function_exists('z_taxonomy_image')) : ?>
+                            <?php z_taxonomy_image( $term->term_id, 'medium_large' ); ?>
+                        <?php endif; ?>
+                    </figure>
 
-                    <?php endif; ?>
-
-                    <div class="element-slides-cat__item--content">
+                    <div class="element-slides-cat__item--content text-center">
                         <h3 class="title">
-                            <a href="<?php echo esc_url( get_category_link( $term ) ); ?>" title="<?php echo esc_attr( $term->name ); ?>">
-                                <?php echo esc_html( $term->name ); ?>
-                            </a>
+                            <?php echo esc_html( $term->name ); ?>
                         </h3>
 
                         <p class="description">
