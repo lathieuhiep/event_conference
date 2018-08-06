@@ -40,7 +40,7 @@ class event_conference_social_widget extends WP_Widget {
 
     ?>
 		
-        <div class="social-widget social-network-toTopFromBottom">
+        <div class="social-widget">
             <?php event_conference_get_social_url(); ?>
         </div>
 

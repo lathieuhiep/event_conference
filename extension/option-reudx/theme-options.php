@@ -677,7 +677,7 @@ Redux::setSection($event_conference_opt_name, array(
     'icon' => 'el el-arrow-down'
 ));
 
-//Footer Content
+// Footer Content
 Redux::setSection($event_conference_opt_name, array(
     'title' => esc_html__('Footer content', 'event_conference'),
     'id' => 'event_conference_footer_content',
@@ -696,6 +696,7 @@ Redux::setSection($event_conference_opt_name, array(
 
 ));
 
+// Footer multi column 1
 Redux::setSection($event_conference_opt_name, array(
     'title' => esc_html__('Footer multi column 1', 'event_conference'),
     'id' => 'event_conference_footer_multi_column_1',
@@ -812,6 +813,7 @@ Redux::setSection($event_conference_opt_name, array(
 
 ));
 
+// Footer multi column 2
 Redux::setSection($event_conference_opt_name, array(
     'title' => esc_html__('Footer multi column 2', 'event_conference'),
     'id' => 'event_conference_footer_multi_column_2',
@@ -928,7 +930,7 @@ Redux::setSection($event_conference_opt_name, array(
 
 ));
 
-//Copyright
+// Copyright
 Redux::setSection($event_conference_opt_name, array(
     'title' => esc_html__('Copyright', 'event_conference'),
     'id' => 'event_conference_footer_copyright',
@@ -949,6 +951,24 @@ Redux::setSection($event_conference_opt_name, array(
                 'quicktags' => true,
             )
         ),
+    )
+));
+
+// Footer logo partner
+Redux::setSection($event_conference_opt_name, array(
+    'title' => esc_html__('Logo partner', 'event_conference'),
+    'id' => 'event_conference_footer_logo_partner',
+    'subsection' => true,
+    'fields' => array(
+
+        array(
+            'id' => 'event_conference_logo_partner_image',
+            'type' => 'media',
+            'url' => true,
+            'title' => esc_html__('Logo partner', 'event_conference'),
+            'default' => false,
+        ),
+
     )
 ));
 

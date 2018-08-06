@@ -7,6 +7,7 @@ if ( has_nav_menu( 'footer-menu' ) ) :
     $event_conference_logo_text_footer = $event_conference_options['event_conference_logo_text_footer'];
 ?>
 
+<div class="row row-item">
     <div class="col-lg-12">
         <div class="site-footer__menu d-flex align-items-center">
             <div class="site-footer__logo-text">
@@ -25,5 +26,6 @@ if ( has_nav_menu( 'footer-menu' ) ) :
             </nav>
         </div>
     </div>
+</div>
 
 <?php endif;?>
