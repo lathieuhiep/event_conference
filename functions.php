@@ -52,7 +52,7 @@ if( !function_exists('event_conference_setup') ):
         add_theme_support( 'title-tag' );
 
         /*  Post Type   */
-        add_theme_support( 'post-formats', array( 'gallery', 'video', 'audio' ) );
+        add_theme_support( 'post-formats', array( 'image', 'gallery', 'video', 'audio' ) );
 
         /*
 	    * This theme styles the visual editor to resemble the theme style,
@@ -72,10 +72,10 @@ function event_conference_post_formats() {
 
     if( has_post_format('audio') || has_post_format('video') ):
         get_template_part( 'template-parts/post/content','video' );
+    elseif ( has_post_format('image') ):
+        get_template_part( 'template-parts/post/content','image' );
     elseif ( has_post_format('gallery') ):
         get_template_part( 'template-parts/post/content','gallery' );
-    else:
-        get_template_part( 'template-parts/post/content','image' );
     endif;
 
 }
@@ -542,6 +542,13 @@ function event_conference_register_required_plugins() {
         array(
             'name'      =>  'Newsletter',
             'slug'      =>  'newsletter',
+            'required'  =>  true,
+        ),
+
+        // This is an example of how to include a plugin from the WordPress Plugin Repository
+        array(
+            'name'      =>  'Breadcrumb navxt',
+            'slug'      =>  'breadcrumb-navxt',
             'required'  =>  true,
         ),
 

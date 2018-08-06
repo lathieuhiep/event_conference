@@ -1,5 +1,5 @@
 .site-footer {
-  border-top: 1px solid $border-color;
+  position: relative;
   padding-bottom: 10px;
 
   section {
@@ -133,7 +133,6 @@
 }
 /* Footer Bottom */
 .site-footer__bottom {
-  border-top: 1px solid $border-color;
   padding-top: 15px;
 }
 .site-copyright {

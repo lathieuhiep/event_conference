@@ -2249,7 +2249,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 # Footer
 -----------------------------------------------------------------------------*/
 .site-footer {
-  border-top: 1px solid #eeeeee;
+  position: relative;
   padding-bottom: 10px;
 }
 
@@ -2390,7 +2390,6 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 
 /* Footer Bottom */
 .site-footer__bottom {
-  border-top: 1px solid #eeeeee;
   padding-top: 15px;
 }
 
