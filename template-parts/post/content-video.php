@@ -1,6 +1,6 @@
 <?php
 
-$event_conference_video_post = get_post_meta(  get_the_ID() , 'event_conference_video_post', true );
+$event_conference_video_post = get_post_meta(  get_the_ID() , 'event_conference_post_video', true );
 
 if ( !empty( $event_conference_video_post ) ):
 
@@ -10,4 +10,5 @@ if ( !empty( $event_conference_video_post ) ):
         <?php echo wp_oembed_get( $event_conference_video_post ); ?>
     </div>
 
-<?php endif;?>
+<?php
+endif;

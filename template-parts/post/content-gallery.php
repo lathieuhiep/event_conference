@@ -1,6 +1,6 @@
 <?php
 
-$event_conference_gallery_post = get_post_meta( get_the_ID(),'event_conference_gallery_post', false );
+$event_conference_gallery_post = get_post_meta( get_the_ID(),'event_conference_post_gallery', false );
 
 if( !empty( $event_conference_gallery_post ) ) :
 
@@ -24,4 +24,5 @@ if( !empty( $event_conference_gallery_post ) ) :
 
     </div>
 
-<?php endif; ?>
+<?php
+endif;
