@@ -3,12 +3,28 @@ while (have_posts()) :
     the_post();
 ?>
 
-    <div id='post-<?php the_ID(); ?>' <?php post_class(); ?>>
-        <?php
-        get_template_part( 'template-parts/post/content','info' );
+    <div class="site-archive-item col-md-6">
+        <figure class="site-archive-item__img">
+            <a class="link-post" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
+            <?php the_post_thumbnail( 'large' ); ?>
 
-        event_conference_post_formats();
-        ?>
+            <figcaption class="site-archive-item__content text-center">
+                <h3 class="title text-uppercase">
+                    <?php the_title() ?>
+                </h3>
+
+                <?php
+                if( has_excerpt() ) :
+                    the_excerpt();
+                else:
+                ?>
+                    <p>
+                        <?php echo wp_trim_words( get_the_content(), 35, '...' ); ?>
+                    </p>
+                <?php
+                endif; ?>
+            </figcaption>
+        </figure>
     </div>
 
 <?php

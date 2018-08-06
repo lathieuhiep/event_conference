@@ -17,6 +17,8 @@ endif;
 ?>
 
 <div class="site-container site-blog">
+    <?php get_template_part( 'template-parts/breadcrumb/inc','breadcrumb' ); ?>
+
     <div class="container">
         <div class="row">
             <?php
@@ -26,25 +28,27 @@ endif;
             ?>
 
             <div class="<?php echo esc_attr( $event_conference_col_class_blog ); ?>">
-                <?php
-                if ( have_posts() ) :
+                <div class="row">
+                    <?php
+                    if ( have_posts() ) :
 
-                    if ( ! is_search() ):
-                        get_template_part( 'template-parts/archive/content', 'archive-post' );
+                        if ( ! is_search() ):
+                            get_template_part( 'template-parts/archive/content', 'archive-post' );
+                        else:
+                            get_template_part( 'template-parts/search/content', 'search-post' );
+                        endif;
+
+                        event_conference_pagination();
+
                     else:
-                        get_template_part( 'template-parts/search/content', 'search-post' );
-                    endif;
 
-                    event_conference_pagination();
+                        if ( is_search() ) :
+                            get_template_part( 'template-parts/search/content', 'search-no-data' );
+                        endif;
 
-                else:
-
-                    if ( is_search() ) :
-                        get_template_part( 'template-parts/search/content', 'search-no-data' );
-                    endif;
-
-                endif; // end if ( have_posts )
-                ?>
+                    endif; // end if ( have_posts )
+                    ?>
+                </div>
             </div>
 
             <?php if ( $event_conference_blog_sidebar_archive == 'right' ) :

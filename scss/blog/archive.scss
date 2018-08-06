@@ -1,0 +1,50 @@
+.site-archive-item__img {
+  position: relative;
+  height: 200px;
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .link-post {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+  &:hover {
+    .site-archive-item__content {
+      p {
+        height: auto;
+        padding: 8px 0;
+        opacity: 1;
+        border-top: 1px solid rgba(230, 230, 230, 0.35);
+      }
+    }
+  }
+}
+.site-archive-item__content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(5,35,95,0.95),#05235f);
+  padding: 10px;
+
+  .title {
+    font-size: 15px;
+    margin: 0 0 10px;
+    font-weight: normal
+  }
+  p {
+    color: #ffffff;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    @include transition(all 0.4s ease-in-out);
+  }
+}

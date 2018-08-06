@@ -16,9 +16,11 @@
 *
 # General
 # Header
+# Breadcrumb
 # Page
 # Sidebar
 # Blog
+  ## Archive
   ## Single
   ## Pagination
   ## Comment
@@ -48,6 +50,11 @@
 # Header
 -----------------------------------------------------------------------------*/
 @import "header/header";
+
+/**
+# Breadcrumb
+-----------------------------------------------------------------------------*/
+@import "breadcrumb";
 
 /**
 # Page
