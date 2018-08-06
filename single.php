@@ -18,7 +18,8 @@ endif;
 ?>
 
 <div class="site-container site-single">
-    <?php get_template_part( 'template-parts/breadcrumb/single','breadcrumb' ); ?>
+    <?php get_template_part( 'template-parts/breadcrumb/inc','breadcrumb' ); ?>
+
     <div class="container">
         <div class="row">
             <?php
