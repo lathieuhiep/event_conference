@@ -1119,6 +1119,41 @@ section.widget.widget_text p i {
   width: 15px;
 }
 
+section.widget form.newsletter {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+section.widget form.newsletter .tnp-field label {
+  font-size: 12px;
+}
+
+section.widget form.newsletter .tnp-field input.tnp-email {
+  border: 1px solid #ccc;
+  width: 100%;
+  display: block;
+  height: auto;
+  padding: 6px 12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+section.widget form.newsletter .tnp-field.tnp-field-button input {
+  padding: 6px 12px;
+  height: auto;
+  background-color: #edc300;
+  color: #ffffff;
+  border: 1px solid #edc300;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
 /* recent posts thumbs widget */
 .recent_posts_thumbs_widget_item {
   margin-bottom: 10px;

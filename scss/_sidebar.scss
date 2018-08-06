@@ -183,6 +183,38 @@ section {
         }
       }
     }
+    form {
+      &.newsletter {
+        @include flexbox();
+
+        .tnp-field {
+          label {
+            font-size: 12px;
+          }
+          input {
+            &.tnp-email {
+              border: 1px solid #ccc;
+              width: 100%;
+              display: block;
+              height: auto;
+              padding: 6px 12px;
+              @include border-radius(4px);
+            }
+          }
+          &.tnp-field-button {
+            input {
+              padding: 6px 12px;
+              height: auto;
+              background-color: $color-title;
+              color: #ffffff;
+              border: 1px solid $color-title;
+              cursor: pointer;
+              @include border-radius(4px);
+            }
+          }
+        }
+      }
+    }
   }
 }
 
