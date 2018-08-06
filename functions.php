@@ -65,6 +65,50 @@ if( !function_exists('event_conference_setup') ):
 
 endif;
 
+function event_conference_get_allowed_project_formats() {
+
+    return array( 'gallery' );
+}
+
+add_action( 'load-post.php',     'event_conference_post_format_support_filter' );
+add_action( 'load-post-new.php', 'event_conference_post_format_support_filter' );
+add_action( 'load-edit.php',     'event_conference_post_format_support_filter' );
+
+function event_conference_post_format_support_filter() {
+
+    $screen = get_current_screen();
+
+    // Bail if not on the projects screen.
+    if ( empty( $screen->post_type ) ||  $screen->post_type !== 'event' )
+        return;
+
+    // Check if the current theme supports formats.
+    if ( current_theme_supports( 'post-formats' ) ) {
+
+        $formats = get_theme_support( 'post-formats' );
+
+        // If we have formats, add theme support for only the allowed formats.
+        if ( isset( $formats[0] ) ) {
+            $new_formats = array_intersect( $formats[0], event_conference_get_allowed_project_formats() );
+
+            // Remove post formats support.
+            remove_theme_support( 'post-formats' );
+
+            // If the theme supports the allowed formats, add support for them.
+            if ( $new_formats )
+                add_theme_support( 'post-formats', $new_formats );
+        }
+    }
+
+    // Filter the default post format.
+    add_filter( 'option_default_post_format', 'event_conference_default_post_format_filter', 95 );
+}
+
+function event_conference_default_post_format_filter( $format ) {
+
+    return in_array( $format, event_conference_get_allowed_project_formats() ) ? $format : 'standard';
+}
+
 /*
  * post formats
  * */
