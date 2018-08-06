@@ -65,6 +65,7 @@ if( !function_exists('event_conference_setup') ):
 
 endif;
 
+/* Custom post formats post type */
 function event_conference_get_allowed_project_formats() {
 
     return array( 'gallery' );
