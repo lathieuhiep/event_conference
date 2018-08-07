@@ -1,80 +1,37 @@
-<?php get_header(); ?>
+<?php
+get_header();
 
-<div class="site-single-event">
+?>
+
+<div class="site-single-event <?php echo ( has_post_format( 'gallery' ) ? 'site-single-event-bk' : 'site-container' ); ?>">
     <?php
-    if ( have_posts() ) :
-        while (have_posts() ) :
-            the_post();
+    if ( !has_post_format( 'gallery' ) ) :
 
-            $event_conference_post_event_address = rwmb_meta( 'event_conference_post_event_address' );
-            $event_conference_post_event_scale = rwmb_meta( 'event_conference_post_event_scale' );
-            $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time' );
-            $event_conference_post_event_gallery = get_post_meta( get_the_ID(),'event_conference_post_event_gallery', false );
-
-            $event_conference_slides_settings =   [
-                'autoplay'  => false,
-                'nav'       => true,
-                'loop'      => true
-            ];
+        get_template_part( 'template-parts/breadcrumb/inc','breadcrumb' );
 
     ?>
-        <div class="site-single-event__main">
-            <div class="site-single-event__slides owl-nav-absolute owl-carousel owl-theme" data-settings='<?php echo esc_attr( wp_json_encode( $event_conference_slides_settings ) ); ?>'>
-                <?php foreach( $event_conference_post_event_gallery as $item ) : ?>
 
-                    <div class="site-single-event__slides--item">
-                        <?php echo wp_get_attachment_image( $item, 'full' ); ?>
-                    </div>
-
-                <?php endforeach; ?>
-            </div>
-
-            <div class="g-line"></div>
-        </div>
-
-        <div class="site-single-event__container">
+        <div class="site-single-event-standard">
             <div class="container">
-                <div class="info clearfix">
-                    <div class="info-left pull-left">
-                        <h1 class="title">
-                            <?php the_title(); ?>
-                        </h1>
+                <div class="row">
+                    <div class="col-md-9">
+                        <?php
+                        get_template_part( 'template-parts/event/content', 'event' );
 
-                        <div class="info-meta">
-                            <span class="meta-address">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <?php esc_html_e( 'Địa Điểm:', 'event_conference' ); echo esc_html( $event_conference_post_event_address ); ?>
-                            </span>
+                        get_template_part( 'template-parts/event/inc', 'related-event' );
 
-                            <span class="meta-scale">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                <?php esc_html_e( 'Quy mô:', 'event_conference' ); echo esc_html( $event_conference_post_event_scale ); ?>
-                            </span>
-
-                            <span class="meta-time">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                <?php esc_html_e( 'Thời gian:', 'event_conference' ); echo esc_html( $event_conference_post_event_time ); ?>
-                            </span>
-                        </div>
+                        get_template_part( 'template-parts/event/inc', 'other-event' );
+                        ?>
                     </div>
 
-                    <div class="info-right share pull-right"></div>
-                </div>
-
-                <div class="site-single-event__gallery">
-                    <?php foreach( $event_conference_post_event_gallery as $item ) : ?>
-
-                        <div class="site-single-event__gallery--item">
-                            <?php echo wp_get_attachment_image( $item, 'medium' ); ?>
-                        </div>
-
-                    <?php endforeach; ?>
+                    <?php get_sidebar(); ?>
                 </div>
             </div>
         </div>
 
     <?php
-        endwhile;
+    else:
+        get_template_part( 'template-parts/event/content', 'event-gallery' );
     endif;
     ?>
 </div>

@@ -1,3 +1,52 @@
+/* Category Event */
+.site-slides-event-warp {
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 30px;
+
+  &:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+  }
+}
+.site-slides-event-cat {
+  position: relative;
+
+  &.owl-carousel {
+    .owl-dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 15px;
+      @include justify-content(flex-end);
+
+      .owl-dot {
+        span {
+          background-color: transparent;
+          border: 1px solid #cccccc;
+        }
+        &.active,
+        &:hover {
+          span {
+            background-color: $color-title;
+            border-color: $color-title;
+          }
+        }
+      }
+    }
+  }
+}
+.site-event-cat-content {
+  .title-cat {
+    font-size: 16px;
+  }
+}
 /* Single Event */
 .site-single-event__slides {
   .site-single-event__slides--item {
@@ -24,8 +73,6 @@
   }
 }
 .site-single-event {
-  background-color: #041026;
-
   .info {
     padding: 15px 0;
 
@@ -55,9 +102,11 @@
     }
   }
 }
+.site-single-event-bk {
+  background-color: #041026;
+}
 .site-single-event__gallery {
   padding: 15px 0;
-  //overflow-x: auto;
   white-space: nowrap;
   height: 180px;
   width: 100%;
@@ -72,5 +121,81 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+.site-single-event-standard__warp {
+  background-color: #fffdf2;
+  padding: 15px;
+
+  .title {
+    position: relative;
+    font-size: 16px;
+    line-height: 1.1em;
+    margin: 0 0 15px;
+    padding-left: 10px;
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background-color: $color-title;
+    }
+  }
+}
+.site-single-event-standard__other {
+  margin-top: 15px;
+
+  .title-other {
+    font-size: 18px;
+    background-color: #052460;
+    padding: 10px;
+    margin: 0 0 10px;
+  }
+  .event-standard-box__item {
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    padding: 15px;
+
+    .item-title {
+      line-height: 1.5em;
+      font-size: 15px;
+      margin-bottom: 10px;
+
+      a {
+        color: $color-title;
+      }
+    }
+    .item-info__meta {
+      span {
+        display: inline-block;
+        font-size: 12px;
+        color: #666;
+        margin-right: 15px;
+
+        i.fa {
+          margin-right: 5px;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .item-info__meta-event {
+      border-top: 1px solid #cccccc;
+      padding-top: 10px;
+      margin-top: 10px;
+
+      span {
+        display: block;
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }

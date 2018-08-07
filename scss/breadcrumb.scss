@@ -6,34 +6,34 @@
   .breadcrumb-wrapper-content {
     position: relative;
     padding-left: 10px;
+    line-height: 1em;
+    font-size: 15px;
 
     &:before{
       position: absolute;
       content: '';
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 3px;
-      height: 80%;
+      height: 100%;
       background-color: #edc300;
     }
-  }
+    > span {
+      display: inline-block;
+      margin: 0 5px;
+      color: #999999;
 
-  span{
-    color: #999;
-    transition: color .3s;
-    font-size: 14px;
+      &:first-child {
+        margin-left: 0;
 
-    &:hover{
-      color: #ccc;
-      transition: color .3s;
+        &:before {
+          content: '\f015';
+          font-family:'FontAwesome';
+          font-size: 18px;
+          margin-right: 5px;
+        }
+      }
     }
-  }
-  .fa-home{
-    margin-right: 5px;
-    font-size: 18px;
-  }
-  .fa-angle-right{
-    margin: 0 5px;
   }
 }
 

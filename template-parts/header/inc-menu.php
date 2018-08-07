@@ -6,7 +6,7 @@
 
     $event_conference_position_header = rwmb_meta( 'event_conference_position_header' );
 
-    if ( $event_conference_position_header == 2 || is_singular( 'event' ) ) :
+    if ( $event_conference_position_header == 2 || ( is_singular( 'event' ) && has_post_format('gallery') ) ) :
         $event_conference_class_position = 'header-absolute';
     else:
         $event_conference_class_position = 'header-relative';

@@ -73,6 +73,9 @@ pre {
     @include box-shadow(none);
   }
 }
+figure {
+  margin: 0;
+}
 #site-loadding {
   position: fixed;
   top: 0;
@@ -237,17 +240,42 @@ pre {
     .owl-nav {
       margin: 0;
 
-      .owl-prev,
-      .owl-next {
-        position: absolute;
-        top: 50%;
-        @include transform(translateY(-50%));
+      button {
+        opacity: 0;
+        margin: 0;
+        width: auto;
+        height: auto;
+        padding: 0 !important;
+        @include transition(all 0.4s ease-in-out);
+
+        i.fa {
+          font-size: 35px;
+
+          &:hover {
+            color: $color-title;
+          }
+        }
+        &.owl-prev,
+        &.owl-next {
+          position: absolute;
+          top: 50%;
+          background-color: transparent;
+          @include transform(translateY(-50%));
+
+        }
+        &.owl-prev {
+          left: 30px;
+        }
+        &.owl-next {
+          right: 30px;
+        }
       }
-      .owl-prev {
-        left: 10px;
-      }
-      .owl-next {
-        right: 10px;
+    }
+    &:hover {
+      .owl-nav {
+        button {
+          opacity: 1;
+        }
       }
     }
   }

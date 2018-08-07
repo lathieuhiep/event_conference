@@ -4,7 +4,7 @@ $event_conference_gallery_post = get_post_meta( get_the_ID(),'event_conference_p
 
 if( !empty( $event_conference_gallery_post ) ) :
 
-    $event_conference_slider_settings =   [
+    $event_conference_slides_settings =   [
         'loop'  =>  true,
         'nav'   =>  true,
         'dots'  =>  true
@@ -12,7 +12,7 @@ if( !empty( $event_conference_gallery_post ) ) :
 
 ?>
 
-    <div class="site-post-slides owl-nav-absolute owl-carousel owl-theme" data-settings='<?php echo esc_attr( wp_json_encode( $event_conference_slider_settings ) ); ?>'>
+    <div class="site-post-slides owl-nav-absolute owl-carousel owl-theme" data-settings='<?php echo esc_attr( wp_json_encode( $event_conference_slides_settings ) ); ?>'>
 
         <?php foreach( $event_conference_gallery_post as $item ) : ?>
 

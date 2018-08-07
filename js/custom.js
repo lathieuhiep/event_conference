@@ -52,6 +52,10 @@
         $( document ).general_owlCarousel_item( '.site-post-slides' );
         /* End Gallery Single */
 
+        /* Start Gallery Event Category */
+        $( document ).general_owlCarousel_item( '.site-slides-event-cat' );
+        /* End Gallery Event Category */
+
         /* Start Gallery Single Event */
         $( document ).general_owlCarousel_item( '.site-single-event__slides' );
         /* End Gallery Single Event */

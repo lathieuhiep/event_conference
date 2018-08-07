@@ -433,6 +433,50 @@ Redux::setSection($event_conference_opt_name, array(
 ));
 /* End Blog Option */
 
+/* Start Event Options */
+Redux::setSection( $event_conference_opt_name, array(
+
+    'title' => esc_html__('Event Options', 'event_conference'),
+    'id' => 'event_conference_event_option',
+    'customizer_width' => '400px',
+    'icon' => 'el eicon-countdown',
+
+) );
+
+Redux::setSection( $event_conference_opt_name, array(
+
+    'title' => esc_html__('Category Options', 'event_conference'),
+    'id' => 'event_conference_event_cat_option',
+    'customizer_width' => '400px',
+    'subsection' => true,
+    'fields' => array(
+
+        array(
+            'title' => esc_html__('On / Off Slides Category Event', 'event_conference'),
+            'id' => 'event_conference_event_cat_slides_on_off',
+            'type' => 'button_set',
+            'options' => array(
+                1 => 'Off',
+                2 => 'On',
+            ),
+            'default' => 1
+        ),
+
+        array(
+            'title' => esc_html__('Slides Category Event', 'event_conference'),
+            'id' => 'event_conference_event_cat_gallery',
+            'type' => 'gallery',
+            'desc' => esc_html__('Slides event category', 'event_conference'),
+            'required' => array(
+                'event_conference_event_cat_slides_on_off','equals','2'
+            )
+        ),
+
+    )
+
+) );
+/* End Event Options */
+
 /* Start Social Network */
 Redux::setSection($event_conference_opt_name, array(
     'title' => esc_html__('Social Network', 'event_conference'),
