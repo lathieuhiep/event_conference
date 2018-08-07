@@ -1,8 +1,16 @@
 <?php
+global $event_conference_options;
+
+$event_conference_event_cat_limit = $event_conference_options['event_conference_event_cat_limit'];
+
 $event_conference_cat_event_object = get_queried_object();
+
+$event_conference_paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
 $event_conference_post_event_arg = array(
     'post_type'         =>  'event',
+    'posts_per_page'    =>  $event_conference_event_cat_limit,
+    'paged'             =>  $event_conference_paged,
     'tax_query'         =>  array(
         'relation' => 'AND',
 
@@ -58,7 +66,7 @@ $event_conference_post_event_query = new WP_Query( $event_conference_post_event_
                                         if( has_excerpt() ) :
                                             the_excerpt();
                                         else:
-                                            ?>
+                                        ?>
                                             <p>
                                                 <?php echo wp_trim_words( get_the_content(), 35, '...' ); ?>
                                             </p>
@@ -73,6 +81,8 @@ $event_conference_post_event_query = new WP_Query( $event_conference_post_event_
                         wp_reset_postdata();
                         ?>
                     </div>
+
+                    <?php event_conference_paging_nav_query( $event_conference_post_event_query ); ?>
                 </div>
             </div>
 

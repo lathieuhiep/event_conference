@@ -472,6 +472,16 @@ Redux::setSection( $event_conference_opt_name, array(
             )
         ),
 
+        array(
+            'title' => esc_html__('Number of events to show', 'event_conference'),
+            'id' => 'event_conference_event_cat_limit',
+            'type' => 'slider',
+            'default' => 10,
+            'min' => 1,
+            'step' => 1,
+            'max' => 250,
+        ),
+
     )
 
 ) );

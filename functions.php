@@ -685,16 +685,14 @@ function event_conference_pagination() {
 }
 
 // pagination nav query
-function event_conference_paging_nav_query( $event_conference_querry ) {
+function event_conference_paging_nav_query( $event_conference_query ) {
 
     $event_conference_pagination_args  =   array(
-
         'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__(' Previous', 'event_conference' ),
         'next_text' => esc_html__('Next', 'event_conference' ) . '<i class="fa fa-angle-double-right"></i>',
         'current'   => max( 1, get_query_var('paged') ),
-        'total'     => $event_conference_querry -> max_num_pages,
+        'total'     => $event_conference_query->max_num_pages,
         'type'      => 'list',
-
     );
 
     $event_conference_paginate_links = paginate_links( $event_conference_pagination_args );

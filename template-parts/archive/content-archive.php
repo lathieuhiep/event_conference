@@ -38,8 +38,6 @@ endif;
                             get_template_part( 'template-parts/search/content', 'search-post' );
                         endif;
 
-                        event_conference_pagination();
-
                     else:
 
                         if ( is_search() ) :
@@ -49,6 +47,7 @@ endif;
                     endif; // end if ( have_posts )
                     ?>
                 </div>
+                <?php event_conference_pagination(); ?>
             </div>
 
             <?php if ( $event_conference_blog_sidebar_archive == 'right' ) :
