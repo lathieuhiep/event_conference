@@ -248,6 +248,9 @@ function event_conference_register_back_end_scripts(){
     /* Start Get CSS Admin */
     wp_enqueue_style( 'event_conference-admin-styles', get_theme_file_uri( '/extension/assets/css/admin-styles.css' ) );
 
+    /* Get JS Admin */
+    wp_enqueue_script( 'event_conference_meta_boxes_option', get_theme_file_uri( '/extension/assets/js/meta_box_option.js' ), array(), '', true );
+
 }
 
 //Register Front-End Styles

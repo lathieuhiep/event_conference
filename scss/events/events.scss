@@ -251,3 +251,14 @@
     }
   }
 }
+.modal-content__form {
+  form {
+    &.wpcf7-form {
+      p {
+        label {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
