@@ -28,7 +28,7 @@ $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time
 
                     <span>
                         <i class="fa fa-eye" aria-hidden="true"></i>
-                        <?php esc_html_e( 'Lượt Xem: ', '' ); echo event_conference_post_view_get( get_the_ID() ); ?>
+                        <?php esc_html_e( 'Lượt Xem: ', 'event_conference' ); echo event_conference_post_view_get( get_the_ID() ); ?>
                     </span>
                 </div>
 

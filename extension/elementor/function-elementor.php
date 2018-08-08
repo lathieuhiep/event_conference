@@ -156,7 +156,7 @@ function event_conference_get_ajax_events_item() {
                     <div class="element-events__item--box">
                         <h4 class="title-box text-center">
                            <span>
-                               <?php esc_html_e( 'Tổ chức sự kiện' ) ?>
+                               <?php esc_html_e( 'Tổ chức sự kiện', 'event_conference' ); ?>
                            </span>
                         </h4>
 
