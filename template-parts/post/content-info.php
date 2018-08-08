@@ -15,7 +15,7 @@ $event_conference_on_off_share_single = $event_conference_options['event_confere
         if( is_single() ) :
             the_title();
         else :
-        ?>
+            ?>
             <a href="<?php the_permalink();?>">
                 <?php if ( is_sticky() && is_home() ) : ?>
                     <i class="fa fa-thumb-tack" aria-hidden="true"></i>
@@ -30,22 +30,34 @@ $event_conference_on_off_share_single = $event_conference_options['event_confere
     </h2>
 
     <div class="site-post-meta">
-        <span class="site-post-author">
-            <?php echo esc_html__('Author:','event_conference');?>
-            <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>">
-                <?php the_author();?>
-            </a>
+
+        <?php if ( $event_conference_on_off_share_single == 1 || $event_conference_on_off_share_single == null ) : ?>
+            <div class="site-post-share">
+
+                <!-- Facebook Button -->
+                <a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
+                    <i class="fa fa-facebook"></i>
+                </a>
+
+                <a class="twitter" target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print event_conference_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
+                    <i class="fa fa-twitter"></i>
+                </a>
+
+                <a class="google" target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </div>
+        <?php endif; ?>
+        <div class="info-post">
+                    <span class="site-post-date">
+            <i class="fa fa-calendar"></i> <?php the_date(); ?>
         </span>
 
-        <span class="site-post-date">
-            <?php esc_html_e( 'Post date: ','event_conference' ); the_date(); ?>
+            <span class="site-post-view">
+            <i class="fa fa-eye"></i><?php echo esc_html__('Lượt xem: ','event_conference'); ?>52742
         </span>
+        </div>
 
-        <span>
-            <?php
-            comments_popup_link( '0 '. esc_html__('Comment','event_conference'),'1 '. esc_html__('Comment','event_conference'), '% '. esc_html__('Comments','event_conference') );
-            ?>
-        </span>
     </div>
 
     <?php if( is_single() ) : ?>
@@ -63,59 +75,19 @@ $event_conference_on_off_share_single = $event_conference_options['event_confere
 
             ?>
         </div>
-
-        <div class="site-post-cat-tag">
-
-            <?php if( get_the_category() != false ): ?>
-
-                <span class="site-post-category">
-                    <?php
-                    esc_html_e('Category: ','event_conference');
-                    the_category( ' ' );;
-                    ?>
-                </span>
-
-            <?php
-
-            endif;
-
-            if( get_the_tags() != false ):
-
-            ?>
-
-                <span class="site-post-tag">
-                    <?php
-                    esc_html_e('Tag: ','event_conference');
-                    the_tags('',' ');
-                    ?>
-                </span>
-
-            <?php endif; ?>
-
-        </div>
-
         <?php if ( $event_conference_on_off_share_single == 1 || $event_conference_on_off_share_single == null ) : ?>
             <div class="site-post-share">
-                <span>
-                    <?php  esc_html_e('Share this post:', 'event_conference') ; ?>
-                </span>
 
                 <!-- Facebook Button -->
-                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
+                <a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
                     <i class="fa fa-facebook"></i>
                 </a>
 
-                <a target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print event_conference_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
+                <a class="twitter" target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print event_conference_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
                     <i class="fa fa-twitter"></i>
                 </a>
 
-                <?php $event_conference_pin_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() )); ?>
-
-                <a data-pin-do="skipLink" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo esc_url( $event_conference_pin_image ); ?>&description=<?php the_title(); ?>">
-                    <i class="fa fa-pinterest"></i>
-                </a>
-
-                <a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
+                <a class="google" target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </div>
@@ -126,7 +98,7 @@ $event_conference_on_off_share_single = $event_conference_options['event_confere
     else :
 
         if ( $event_conference_post_type != 'page' ) :
-    ?>
+            ?>
 
             <div class="site-post-excerpt">
 
@@ -139,7 +111,7 @@ $event_conference_on_off_share_single = $event_conference_options['event_confere
                 else:
 
                     the_excerpt();
-                ?>
+                    ?>
                     <a href="<?php the_permalink();?>" class="tzreadmore">
                         <?php echo esc_html__('Read more','event_conference');?>
                     </a>
@@ -159,7 +131,7 @@ $event_conference_on_off_share_single = $event_conference_options['event_confere
 
             </div>
 
-    <?php
+        <?php
 
         endif;
     endif;

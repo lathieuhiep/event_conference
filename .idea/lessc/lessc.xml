@@ -9,14 +9,14 @@
               <option name="cssDirectories">
                 <list>
                   <CssDirectory>
-                    <option name="path" value="D:\outsource\project\event_conference" />
+                    <option name="path" value="D:\outsource\project\event_conference\event_conference" />
                   </CssDirectory>
                 </list>
               </option>
               <option name="excludePattern" value="hungkv-style.css" />
               <option name="id" value="0" />
               <option name="includePattern" value="hungkv-style.less" />
-              <option name="lessDirPath" value="D:\outsource\project\event_conference\less" />
+              <option name="lessDirPath" value="D:\outsource\project\event_conference\event_conference\less" />
               <option name="name" value="event-hoabinh" />
             </LessProfile>
           </value>
