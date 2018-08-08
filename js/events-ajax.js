@@ -43,6 +43,7 @@
                     data_event_cat_id  =   parseInt( $(this).data( 'event-cat' ) ),
                     data_column        =   parseInt( data_settings['column'] ),
                     data_limit         =   parseInt( data_settings['limit'] ),
+                    data_format        =   data_settings['format'],
                     data_orderby       =   data_settings['orderby'],
                     data_order         =   data_settings['order'];
 
@@ -55,6 +56,7 @@
                         action: 'event_conference_get_ajax_events_item',
                         event_column: data_column,
                         event_cat_id: data_event_cat_id,
+                        event_format: data_format,
                         event_limit: data_limit,
                         event_orderby: data_orderby,
                         event_order: data_order
@@ -74,6 +76,8 @@
                             element_events_content.empty().append( data );
                             element_events_content.removeClass( 'events-opacity' );
 
+                        }else {
+                            element_events_content.removeClass( 'events-opacity' );
                         }
 
                         element_events_prev.parent().addClass('hide');
@@ -105,6 +109,7 @@
                 data_total_item    =   parseInt( $(this).parents('.element-events').find( '.element-events__filter--btn.active' ).data( 'total-item' ) ),
                 data_column        =   parseInt( data_settings['column'] ),
                 data_limit         =   parseInt( data_settings['limit'] ),
+                data_format        =   data_settings['format'],
                 data_orderby       =   data_settings['orderby'],
                 data_order         =   data_settings['order'];
 
@@ -118,6 +123,7 @@
                     event_next_prev: event_prev_item,
                     event_column: data_column,
                     event_cat_id: data_event_cat_id,
+                    event_format: data_format,
                     event_limit: data_limit,
                     event_orderby: data_orderby,
                     event_order: data_order
@@ -137,6 +143,8 @@
                         element_events_content.empty().append( data );
                         element_events_content.removeClass( 'events-opacity' );
 
+                    }else {
+                        element_events_content.removeClass( 'events-opacity' );
                     }
 
                     let data_total_item_new =   data_total_item + data_limit,
@@ -175,6 +183,7 @@
                 data_count_item    =   parseInt( data_settings['total_item'] ),
                 data_column        =   parseInt( data_settings['column'] ),
                 data_limit         =   parseInt( data_settings['limit'] ),
+                data_format        =   data_settings['format'],
                 data_orderby       =   data_settings['orderby'],
                 data_order         =   data_settings['order'];
 
@@ -188,6 +197,7 @@
                     event_next_prev: event_next_item,
                     event_column: data_column,
                     event_cat_id: data_event_cat_id,
+                    event_format: data_format,
                     event_limit: data_limit,
                     event_orderby: data_orderby,
                     event_order: data_order
@@ -207,6 +217,8 @@
                         element_events_content.empty().append( data );
                         element_events_content.removeClass( 'events-opacity' );
 
+                    } else {
+                        element_events_content.removeClass( 'events-opacity' );
                     }
 
                     let data_total_item_new =   data_total_item - data_limit,

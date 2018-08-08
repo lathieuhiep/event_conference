@@ -87,6 +87,20 @@ class event_conference_post_type_events extends Widget_Base {
         );
 
         $this->add_control(
+            'post_type_events_post_format',
+            [
+                'label'     =>  esc_html__( 'Post Format', 'event_conference' ),
+                'type'      =>  Controls_Manager::SELECT,
+                'default'   =>  'gallery',
+                'options'   =>  [
+                    'gallery'   =>  esc_html__( 'Gallery', 'event_conference' ),
+                    'standard'  =>  esc_html__( 'Standard', 'event_conference' ),
+                    'all'       =>  esc_html__( 'All', 'event_conference' ),
+                ],
+            ]
+        );
+
+        $this->add_control(
             'post_type_events_limit',
             [
                 'label'     =>  esc_html__( 'Number of Events', 'event_conference' ),
@@ -135,6 +149,7 @@ class event_conference_post_type_events extends Widget_Base {
         $settings       =   $this->get_settings_for_display();
         $column_number  =   $settings['post_type_events_column_number'];
         $cat_post_event =   $settings['post_type_events_select_cat'];
+        $post_format    =   $settings['post_type_events_post_format'];
         $limit_post     =   $settings['post_type_events_limit'];
         $order_by_post  =   $settings['post_type_events_order_by'];
         $order_post     =   $settings['post_type_events_order'];
@@ -147,27 +162,103 @@ class event_conference_post_type_events extends Widget_Base {
 
         if ( !empty( $cat_post_event ) ) :
 
-            $event_conference_post_type_events_arg = array(
-                'post_type'         =>  'event',
-                'posts_per_page'    =>  $limit_post,
-                'orderby'           =>  $order_by_post,
-                'order'             =>  $order_post,
-                'tax_query'         =>  array(
+            if ( $post_format == 'gallery' ) :
+
+                $event_conference_tax_query_event = array(
+                    'relation' => 'AND',
+
+                    array(
+                        'taxonomy'  =>  'event_cat',
+                        'field'     =>  'id',
+                        'terms'     =>  $cat_post_event[0]
+                    ),
+
+                    array(
+                        'taxonomy' => 'post_format',
+                        'field'    => 'slug',
+                        'terms'    => array( 'post-format-gallery' ),
+                    ),
+
+                );
+
+            elseif ( $post_format == 'standard' ) :
+
+                $event_conference_tax_query_event = array(
+                    'relation' => 'AND',
+
+                    array(
+                        'taxonomy'  =>  'event_cat',
+                        'field'     =>  'id',
+                        'terms'     =>  $cat_post_event[0]
+                    ),
+
+                    array(
+                        'taxonomy' => 'post_format',
+                        'field'    => 'slug',
+                        'terms'    => array( 'post-format-gallery' ),
+                        'operator' => 'NOT IN',
+                    ),
+
+                );
+
+            else:
+
+                $event_conference_tax_query_event = array(
+
                     array(
                         'taxonomy'  =>  'event_cat',
                         'field'     =>  'id',
                         'terms'     =>   $cat_post_event[0]
                     )
-                )
-            );
 
-        else:
+                );
+
+            endif;
 
             $event_conference_post_type_events_arg = array(
                 'post_type'         =>  'event',
                 'posts_per_page'    =>  $limit_post,
                 'orderby'           =>  $order_by_post,
-                'order'             =>  $order_post
+                'order'             =>  $order_post,
+                'tax_query'         =>  array( $event_conference_tax_query_event )
+            );
+
+        else:
+
+            if ( $post_format == 'gallery' ) :
+
+                $event_conference_tax_query_event = array(
+                    array(
+                        'taxonomy' => 'post_format',
+                        'field'    => 'slug',
+                        'terms'    => array( 'post-format-gallery' ),
+                    ),
+                );
+
+            elseif ( $post_format == 'standard' ) :
+
+                $event_conference_tax_query_event = array(
+                    array(
+                        'taxonomy' => 'post_format',
+                        'field'    => 'slug',
+                        'terms'    => array( 'post-format-gallery' ),
+                        'operator' => 'NOT IN',
+                    ),
+
+                );
+
+            else:
+
+                $event_conference_tax_query_event = '';
+
+            endif;
+
+            $event_conference_post_type_events_arg = array(
+                'post_type'         =>  'event',
+                'posts_per_page'    =>  $limit_post,
+                'orderby'           =>  $order_by_post,
+                'order'             =>  $order_post,
+                'tax_query'         =>  array( $event_conference_tax_query_event )
             );
 
         endif;
@@ -181,10 +272,11 @@ class event_conference_post_type_events extends Widget_Base {
             $total_post_events = wp_count_posts( 'event' )->publish;
 
             $event_conference_settings =   [
-                'column' =>  $column_number,
-                'limit' =>  $limit_post,
-                'orderby' =>  $order_by_post,
-                'order' =>  $order_post
+                'format'    =>  $post_format,
+                'column'    =>  $column_number,
+                'limit'     =>  $limit_post,
+                'orderby'   =>  $order_by_post,
+                'order'     =>  $order_post
             ];
 
         ?>
