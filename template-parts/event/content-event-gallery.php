@@ -3,13 +3,15 @@ if ( have_posts() ) :
     while (have_posts() ) :
         the_post();
 
+    event_conference_post_view_set( get_the_ID() );
+
     $event_conference_post_event_address = rwmb_meta( 'event_conference_post_event_address' );
     $event_conference_post_event_scale = rwmb_meta( 'event_conference_post_event_scale' );
     $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time' );
     $event_conference_post_event_gallery = get_post_meta( get_the_ID(),'event_conference_post_event_gallery', false );
 
     $event_conference_slides_settings = [
-        'autoplay'  => false,
+        'autoplay'  => true,
         'nav'       => true,
         'loop'      => true
     ];

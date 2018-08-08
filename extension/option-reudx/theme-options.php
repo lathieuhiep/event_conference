@@ -440,12 +440,30 @@ Redux::setSection( $event_conference_opt_name, array(
     'id' => 'event_conference_event_option',
     'customizer_width' => '400px',
     'icon' => 'el eicon-countdown',
+    'fields' => array(
+
+        array(
+            'id' => 'event_conference_event_support',
+            'type' => 'text',
+            'title' => esc_html__('Phone Support', 'event_conference'),
+            'default' => '123456789',
+        ),
+
+        array(
+            'id' => 'event_conference_event_short_code_form',
+            'type' => 'text',
+            'title' => esc_html__('ShortCode Contact Form', 'event_conference'),
+            'desc' => esc_html__('Use Contact Form 7', 'event_conference'),
+            'default' => '',
+        ),
+
+    )
 
 ) );
 
 Redux::setSection( $event_conference_opt_name, array(
 
-    'title' => esc_html__('Category Options', 'event_conference'),
+    'title' => esc_html__('Events Categories', 'event_conference'),
     'id' => 'event_conference_event_cat_option',
     'customizer_width' => '400px',
     'subsection' => true,
@@ -480,6 +498,86 @@ Redux::setSection( $event_conference_opt_name, array(
             'min' => 1,
             'step' => 1,
             'max' => 250,
+        ),
+
+        array(
+            'id' => 'event_conference_event_cat_sidebar',
+            'type' => 'image_select',
+            'title' => esc_html__('Sidebar', 'event_conference'),
+            'default' => 'right',
+            'options' => array(
+                'hide' => array(
+                    'alt' => 'None Sidebar',
+                    'img' => ReduxFramework::$_url . 'assets/img/1col.png'
+                ),
+
+                'left' => array(
+                    'alt' => 'Sidebar Left',
+                    'img' => ReduxFramework::$_url . 'assets/img/2cl.png'
+                ),
+
+                'right' => array(
+                    'alt' => 'Sidebar Right',
+                    'img' => ReduxFramework::$_url . 'assets/img/2cr.png'
+                ),
+
+            ),
+        ),
+
+    )
+
+) );
+
+Redux::setSection( $event_conference_opt_name, array(
+
+    'title' => esc_html__('Event Single', 'event_conference'),
+    'id' => 'event_conference_event_single_option',
+    'customizer_width' => '400px',
+    'subsection' => true,
+    'fields' => array(
+
+        array(
+            'id' => 'event_conference_event_single_sidebar',
+            'type' => 'image_select',
+            'title' => esc_html__('Sidebar ( Type Standard )', 'event_conference'),
+            'default' => 'right',
+            'options' => array(
+                'hide' => array(
+                    'alt' => 'None Sidebar',
+                    'img' => ReduxFramework::$_url . 'assets/img/1col.png'
+                ),
+
+                'left' => array(
+                    'alt' => 'Sidebar Left',
+                    'img' => ReduxFramework::$_url . 'assets/img/2cl.png'
+                ),
+
+                'right' => array(
+                    'alt' => 'Sidebar Right',
+                    'img' => ReduxFramework::$_url . 'assets/img/2cr.png'
+                ),
+
+            ),
+        ),
+
+        array(
+            'title'     =>  esc_html__('Number of event related to show', 'event_conference'),
+            'id'        =>  'event_conference_event_related_limit',
+            'type'      =>  'slider',
+            'default'   =>  5,
+            'min'       =>  1,
+            'step'      =>  1,
+            'max'       =>  100,
+        ),
+
+        array(
+            'title'     =>  esc_html__('Number of event other to show', 'event_conference'),
+            'id'        =>  'event_conference_event_other_limit',
+            'type'      =>  'slider',
+            'default'   =>  5,
+            'min'       =>  1,
+            'step'      =>  1,
+            'max'       =>  100,
         ),
 
     )

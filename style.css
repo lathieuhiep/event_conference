@@ -31,6 +31,7 @@
   ## Post Type
   ## Intro
   ## Events
+# Contact Form 7
 # Footer
 # Responsive
 * -----------------------------------------------------------------------------
@@ -62,10 +63,14 @@ body {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
 }
 
 .sticky-footer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
   flex: 1 0 auto;
 }
 
@@ -241,10 +246,12 @@ figure {
 
 @keyframes toTopFromBottom {
   49% {
+    -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
   50% {
     opacity: 0;
+    -webkit-transform: translateY(100%);
     transform: translateY(100%);
   }
   51% {
@@ -294,8 +301,12 @@ figure {
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   -webkit-justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -701,6 +712,9 @@ form.post-password-form p input[type='submit'] {
   top: 0;
   width: 100%;
   z-index: 9999;
+  background: -webkit-gradient(linear, left top, left bottom, from(#333), to(rgba(0, 0, 0, 0)));
+  background: -webkit-linear-gradient(#333, rgba(0, 0, 0, 0));
+  background: -o-linear-gradient(#333, rgba(0, 0, 0, 0));
   background: linear-gradient(#333, rgba(0, 0, 0, 0));
 }
 
@@ -710,6 +724,8 @@ form.post-password-form p input[type='submit'] {
 
 .site-logo {
   -webkit-flex: 0 0 auto;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
@@ -720,6 +736,8 @@ form.post-password-form p input[type='submit'] {
 
 .site-menu {
   -webkit-flex: 1;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 
@@ -1071,6 +1089,7 @@ section.widget.widget_search .search-form {
 section.widget.widget_search .search-form .search-field {
   -webkit-flex: 1 auto;
   -ms-flex: 1 auto;
+  -webkit-box-flex: 1;
   flex: 1 auto;
 }
 
@@ -1229,6 +1248,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   margin-right: 15px;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
   flex: 0 0 auto;
 }
 
@@ -1292,6 +1312,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .site-archive-item__img img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1316,6 +1337,9 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   left: 0;
   bottom: 0;
   width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(rgba(5, 35, 95, 0.95)), to(#05235f));
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(5, 35, 95, 0.95), #05235f);
+  background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(5, 35, 95, 0.95), #05235f);
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(5, 35, 95, 0.95), #05235f);
   padding: 10px;
 }
@@ -1432,6 +1456,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   margin-right: 20px;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
   flex: 0 0 auto;
 }
 
@@ -1531,6 +1556,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .comment-form .comment-notes {
   -moz-box-ordinal-group: 1;
   -ms-flex-order: 1;
+  -webkit-box-ordinal-group: 2;
   order: 1;
 }
 
@@ -1557,6 +1583,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .comment-form .form-submit {
   -moz-box-ordinal-group: 4;
   -ms-flex-order: 4;
+  -webkit-box-ordinal-group: 5;
   order: 4;
 }
 
@@ -1609,6 +1636,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .comments-area .comment-list li .comment-body .comment-author {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
   flex: 0 0 auto;
 }
 
@@ -1616,6 +1644,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   padding-left: 30px;
   -webkit-flex: 1;
   -ms-flex: 1;
+  -webkit-box-flex: 1;
   flex: 1;
 }
 
@@ -1682,6 +1711,8 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   width: 100%;
   padding: 10px 15px;
   -webkit-justify-content: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
@@ -1707,6 +1738,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .site-single-event__slides .site-single-event__slides--item img {
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1716,6 +1748,9 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 
 .site-single-event__main .g-line {
   height: 150px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(#041026));
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), #041026);
+  background: -o-linear-gradient(rgba(0, 0, 0, 0), #041026);
   background: linear-gradient(rgba(0, 0, 0, 0), #041026);
   position: absolute;
   left: 0;
@@ -1775,6 +1810,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .site-single-event__gallery--item img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1825,6 +1861,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .site-single-event-standard__other .event-standard-box__item .item-image img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1866,6 +1903,57 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 
 .site-single-event-standard__other .event-standard-box__item .item-info__meta-event span:last-child {
   margin-bottom: 0;
+}
+
+.site-single-event__support {
+  border-top: 1px solid #cccccc;
+  padding-top: 15px;
+  margin-top: 30px;
+}
+
+.site-single-event__support .phone-support {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 15px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.site-single-event__support .phone-support i.fa {
+  margin-right: 5px;
+}
+
+.site-single-event__support .tel {
+  background-color: #f00;
+}
+
+.site-single-event__support .get-phone {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #18C29C;
+}
+
+.site-single-event__support .modal-body {
+  padding: 15px 15px 0;
+}
+
+.site-single-event__support .modal-title {
+  font-size: 14px;
+  color: #666666;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.site-single-event__support .modal-footer {
+  padding: 15px;
+}
+
+.site-single-event__support .modal-footer button {
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 14px;
 }
 
 /**
@@ -1990,31 +2078,43 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 
 .element-slides--h-position-center .element-slides__item--inner {
   -webkit-justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .element-slides--h-position-left .element-slides__item--inner {
   -webkit-justify-content: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
 .element-slides--h-position-right .element-slides__item--inner {
   -webkit-justify-content: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
 .element-slides--v-position-middle .element-slides__item--inner {
   -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .element-slides--v-position-top .element-slides__item--inner {
   -webkit-align-items: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 
 .element-slides--v-position-bottom .element-slides__item--inner {
   -webkit-align-items: flex-end;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
 }
 
@@ -2047,6 +2147,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .element-slides-cat .element-slides-cat__item--image img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -2056,6 +2157,9 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   bottom: 0;
   width: 100%;
   padding: 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(rgba(5, 35, 95, 0.95)), to(#05235f));
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(5, 35, 95, 0.95), #05235f);
+  background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(5, 35, 95, 0.95), #05235f);
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(5, 35, 95, 0.95), #05235f);
 }
 
@@ -2117,6 +2221,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .element-post-type .element-post-type__item--image a img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
@@ -2176,6 +2281,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 .element-post-type__video .element-post-type__video--image img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -2276,6 +2382,8 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
 }
 
@@ -2289,9 +2397,12 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
   -webkit-flex: 1 auto;
   -ms-flex: 1 auto;
+  -webkit-box-flex: 1;
   flex: 1 auto;
 }
 
@@ -2315,9 +2426,12 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
   -webkit-flex: 1 auto;
   -ms-flex: 1 auto;
+  -webkit-box-flex: 1;
   flex: 1 auto;
 }
 
@@ -2358,6 +2472,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   margin-top: 20px;
   -webkit-flex: 1 auto;
   -ms-flex: 1 auto;
+  -webkit-box-flex: 1;
   flex: 1 auto;
 }
 
@@ -2435,6 +2550,70 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 
 .element-events__pagination span i.fa {
   line-height: inherit;
+}
+
+/**
+# Contact Form 7
+-----------------------------------------------------------------------------*/
+form.wpcf7-form p {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+form.wpcf7-form p span.ajax-loader {
+  position: absolute;
+  top: 8px;
+}
+
+form.wpcf7-form label {
+  display: block;
+  color: #666666;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap {
+  display: block;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap input,
+form.wpcf7-form span.wpcf7-form-control-wrap textarea {
+  height: auto;
+  width: 100%;
+  display: block;
+  border: 1px solid #cccccc;
+  padding: 6px 12px;
+  color: #555555;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap input:focus,
+form.wpcf7-form span.wpcf7-form-control-wrap textarea:focus {
+  border-color: #66afe9;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap textarea {
+  height: 90px;
+}
+
+form.wpcf7-form .wpcf7-submit {
+  color: #fff;
+  padding: 6px 12px;
+  background-color: #5bc0de;
+  border: 1px solid #46b8da;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+form.wpcf7-form .wpcf7-submit:hover {
+  background-color: #31b0d5;
+  border-color: #269abc;
 }
 
 /**
@@ -2666,6 +2845,8 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
     display: -webkit-flex;
     display: flex;
     -webkit-justify-content: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
   .navbar-toggle {
@@ -2736,6 +2917,8 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     flex-direction: column;
   }
   .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item--image,
@@ -2745,6 +2928,12 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   }
   .recent_posts_thumbs_widget_grid .recent_posts_thumbs_widget_item {
     width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 600px;
   }
 }
 
@@ -2759,6 +2948,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   .woocommerce-page .col2-set .col-2 {
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
+    -webkit-box-flex: 0;
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -2771,6 +2961,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   .element-events .element-events__item--img img {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
   }
 }
@@ -2780,6 +2971,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   .woocommerce ul.products.columns-3 li.product, .woocommerce ul.products.columns-4 li.product, .woocommerce ul.products.columns-5 li.product {
     -webkit-flex: 0 0 33.33333%;
     -ms-flex: 0 0 33.33333%;
+    -webkit-box-flex: 0;
     flex: 0 0 33.33333%;
     width: 33.333333%;
   }
@@ -2808,6 +3000,7 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
   .woocommerce ul.products.columns-3 li.product, .woocommerce ul.products.columns-4 li.product, .woocommerce ul.products.columns-5 li.product {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
+    -webkit-box-flex: 0;
     flex: 0 0 50%;
     width: 50%;
   }

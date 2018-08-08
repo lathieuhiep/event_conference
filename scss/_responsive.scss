@@ -156,6 +156,14 @@
 
 }
 
+@media ( min-width: 768px ) {
+
+  .modal-dialog {
+    max-width: 600px;
+  }
+
+}
+
 @media ( max-width: 767px ) {
 
   .site-sidebar {

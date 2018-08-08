@@ -309,17 +309,17 @@ function event_conference_register_front_end() {
 
     wp_register_script( 'owl-carousel', get_theme_file_uri( '/js/owl.carousel.min.js' ), array(), '2.3.4', true );
 
-    if( is_single() || is_tag() || is_category() || is_archive() || is_author() || is_search() || is_home()){
+    if( is_single() || is_tag() || is_category() || is_archive() || is_author() || is_search() || is_home() || is_page_template( 'templates/event-cat.php' ) ) :
 
         /* Start Carousel Js */
         wp_enqueue_script( 'owl-carousel' );
         /* End Carousel Js */
 
-    }
+    endif;
 
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) :
         wp_enqueue_script( 'comment-reply' );
-    }
+    endif;
 
     wp_register_script( 'lity', get_theme_file_uri( '/js/lity.min.js' ), array(), '2.3.1', true );
 
@@ -578,6 +578,13 @@ function event_conference_register_required_plugins() {
 
         // This is an example of how to include a plugin from the WordPress Plugin Repository
         array(
+            'name'      =>  'Contact Form 7',
+            'slug'      =>  'contact-form-7',
+            'required'  =>  true,
+        ),
+
+        // This is an example of how to include a plugin from the WordPress Plugin Repository
+        array(
             'name'      =>  'Categories Images',
             'slug'      =>  'categories-images',
             'required'  =>  true,
@@ -724,3 +731,78 @@ function event_conference_sanitize_pagination( $event_conference_content ) {
 }
 
 add_action('navigation_markup_template', 'event_conference_sanitize_pagination');
+
+/* Posts per page taxonomy */
+$event_conference_option_posts_per_page = get_option( 'posts_per_page' );
+add_action( 'init', 'event_conference_posts_per_page_taxonomy', 0);
+
+function event_conference_posts_per_page_taxonomy() {
+    add_filter( 'option_posts_per_page', 'event_conference_option_posts_per_page_taxonomy' );
+}
+
+function event_conference_option_posts_per_page_taxonomy() {
+    
+    global $event_conference_option_posts_per_page, $event_conference_options;
+
+    $event_conference_event_cat_limit = $event_conference_options['event_conference_event_cat_limit'];
+
+    if ( is_tax( 'event_cat') ) :
+        return $event_conference_event_cat_limit;
+    else :
+        return $event_conference_option_posts_per_page;
+    endif;
+    
+}
+
+/* Start Count View Post */
+function event_conference_post_view_set( $postID ) {
+
+    $event_conference_count_key = 'postview_number';
+    $event_conference_count = get_post_meta( $postID, $event_conference_count_key, true );
+
+    if( $event_conference_count == '' ) :
+        $count = 0;
+        delete_post_meta( $postID, $event_conference_count_key );
+        add_post_meta( $postID, $event_conference_count_key, '0' );
+    else :
+        $event_conference_count++;
+        update_post_meta( $postID, $event_conference_count_key, $event_conference_count );
+    endif;
+
+}
+
+function event_conference_post_view_get( $postID ) {
+
+    $event_conference_count_key = 'postview_number';
+    $event_conference_count = get_post_meta( $postID, $event_conference_count_key, true );
+
+    if( $event_conference_count == '' ) :
+        delete_post_meta($postID, $event_conference_count_key);
+        add_post_meta( $postID, $event_conference_count_key, '0' );
+        return "0";
+    endif;
+
+    return $event_conference_count;
+
+}
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
+/* End Count View Post */
+
+/* Start Get col global */
+function event_conference_col_use_sidebar( $option_position_sidebar_meta, $active_sidebar ) {
+
+    if ( $option_position_sidebar_meta != 'hide' && is_active_sidebar( $active_sidebar ) ):
+        $class_col_content_sidebar = 'col-md-9';
+    else:
+        $class_col_content_sidebar = 'col-md-12';
+    endif;
+
+    return $class_col_content_sidebar;
+}
+
+function event_conference_col_sidebar() {
+    $class_col_sidebar = 'col-md-3';
+
+    return $class_col_sidebar;
+}
+/* End Get col global */

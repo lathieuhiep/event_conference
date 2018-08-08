@@ -5,15 +5,7 @@ global $event_conference_options;
 
 $event_conference_blog_sidebar_single = !empty( $event_conference_options['event_conference_blog_sidebar_single'] ) ? $event_conference_options['event_conference_blog_sidebar_single'] : 'right';
 
-if ( ( $event_conference_blog_sidebar_single == 'left' || $event_conference_blog_sidebar_single == 'right' ) && is_active_sidebar( 'event_conference-sidebar' ) ):
-
-    $event_conference_col_class_blog = 'col-md-9';
-
-else:
-
-    $event_conference_col_class_blog = 'col-md-12';
-
-endif;
+$event_conference_col_sidebar = event_conference_col_use_sidebar( $event_conference_blog_sidebar_single, 'event_conference-sidebar' );
 
 ?>
 
@@ -23,14 +15,12 @@ endif;
     <div class="container">
         <div class="row">
             <?php
-
             if( $event_conference_blog_sidebar_single == 'left' ):
                 get_sidebar();
             endif;
-
             ?>
 
-            <div class="<?php echo esc_attr( $event_conference_col_class_blog ); ?>">
+            <div class="<?php echo esc_attr( $event_conference_col_sidebar ); ?>">
                 <?php
 
                 if ( have_posts() ) : while (have_posts()) : the_post();
@@ -86,13 +76,10 @@ endif;
             </div>
 
             <?php
-
             if( $event_conference_blog_sidebar_single == 'right' ):
                 get_sidebar();
             endif;
-
             ?>
-
         </div>
     </div>
 </div>

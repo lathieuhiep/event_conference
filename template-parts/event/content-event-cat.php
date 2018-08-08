@@ -1,35 +1,11 @@
 <?php
 global $event_conference_options;
 
-$event_conference_event_cat_limit = $event_conference_options['event_conference_event_cat_limit'];
-
 $event_conference_cat_event_object = get_queried_object();
 
-$event_conference_paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+$event_conference_event_cat_sidebar = !empty( $event_conference_options['event_conference_event_cat_sidebar'] ) ? $event_conference_options['event_conference_event_cat_sidebar'] : 'right';
 
-$event_conference_post_event_arg = array(
-    'post_type'         =>  'event',
-    'posts_per_page'    =>  $event_conference_event_cat_limit,
-    'paged'             =>  $event_conference_paged,
-    'tax_query'         =>  array(
-        'relation' => 'AND',
-
-        array(
-            'taxonomy'  =>  'event_cat',
-            'field'     =>  'id',
-            'terms'     =>  $event_conference_cat_event_object->term_id
-        ),
-
-        array(
-            'taxonomy' => 'post_format',
-            'field'    => 'slug',
-            'terms'    => array( 'post-format-gallery' ),
-            'operator' => 'NOT IN',
-        ),
-    )
-);
-
-$event_conference_post_event_query = new WP_Query( $event_conference_post_event_arg );
+$event_conference_col_sidebar = event_conference_col_use_sidebar( $event_conference_event_cat_sidebar, 'event_conference-sidebar' );
 
 ?>
 
@@ -38,7 +14,13 @@ $event_conference_post_event_query = new WP_Query( $event_conference_post_event_
 
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <?php
+            if ( $event_conference_event_cat_sidebar == 'left' ) :
+                get_sidebar();
+            endif;
+            ?>
+
+            <div class="<?php echo esc_attr( $event_conference_col_sidebar ); ?>">
                 <?php get_template_part( 'template-parts/event/inc', 'slides-event-cat' ); ?>
 
                 <div class="site-event-cat-content">
@@ -48,45 +30,24 @@ $event_conference_post_event_query = new WP_Query( $event_conference_post_event_
 
                     <div class="row site-event-cat-post">
                         <?php
-                        while ( $event_conference_post_event_query->have_posts() ) :
-                            $event_conference_post_event_query->the_post();
-                        ?>
+                        while ( have_posts() ) :
+                            the_post();
 
-                            <div class="site-archive-item col-md-6">
-                                <figure class="site-archive-item__img">
-                                    <a class="link-post" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
-                                    <?php the_post_thumbnail( 'large' ); ?>
+                            get_template_part( 'template-parts/event/content', 'event-item' );
 
-                                    <figcaption class="site-archive-item__content text-center">
-                                        <h3 class="title text-uppercase">
-                                            <?php the_title() ?>
-                                        </h3>
-
-                                        <?php
-                                        if( has_excerpt() ) :
-                                            the_excerpt();
-                                        else:
-                                        ?>
-                                            <p>
-                                                <?php echo wp_trim_words( get_the_content(), 35, '...' ); ?>
-                                            </p>
-                                        <?php
-                                        endif; ?>
-                                    </figcaption>
-                                </figure>
-                            </div>
-
-                        <?php
                         endwhile;
                         wp_reset_postdata();
                         ?>
                     </div>
 
-                    <?php event_conference_paging_nav_query( $event_conference_post_event_query ); ?>
+                    <?php event_conference_pagination(); ?>
                 </div>
             </div>
 
-            <?php get_sidebar(); ?>
+            <?php if ( $event_conference_event_cat_sidebar == 'right' ) :
+                get_sidebar();
+            endif;
+            ?>
         </div>
     </div>
 </div>

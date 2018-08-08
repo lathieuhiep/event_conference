@@ -1,18 +1,9 @@
 <?php
-
 global $event_conference_options;
 
 $event_conference_blog_sidebar_archive = !empty( $event_conference_options['event_conference_blog_sidebar_archive'] ) ? $event_conference_options['event_conference_blog_sidebar_archive'] : 'right';
 
-if ( ( $event_conference_blog_sidebar_archive == 'left' || $event_conference_blog_sidebar_archive == 'right' ) && is_active_sidebar( 'event_conference-sidebar' ) ):
-
-    $event_conference_col_class_blog = 'col-md-9';
-
-else:
-
-    $event_conference_col_class_blog = 'col-md-12';
-
-endif;
+$event_conference_col_sidebar = event_conference_col_use_sidebar( $event_conference_blog_sidebar_archive, 'event_conference-sidebar' );
 
 ?>
 
@@ -27,7 +18,7 @@ endif;
             endif;
             ?>
 
-            <div class="<?php echo esc_attr( $event_conference_col_class_blog ); ?>">
+            <div class="<?php echo esc_attr( $event_conference_col_sidebar ); ?>">
                 <div class="row">
                     <?php
                     if ( have_posts() ) :
@@ -54,7 +45,6 @@ endif;
                 get_sidebar();
             endif;
             ?>
-
         </div>
     </div>
 </div>
