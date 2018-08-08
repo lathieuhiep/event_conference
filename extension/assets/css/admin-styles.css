@@ -311,3 +311,6 @@
 .rwmb-field.rwmb-heading-wrapper p.description {
     margin: 10px 0 0;
 }
+#page_option_normal {
+    display: none;
+}
