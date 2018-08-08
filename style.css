@@ -2271,13 +2271,6 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 
 .element-post-video__item .element-post-video__bk {
   position: relative;
-  height: 180px;
-}
-
-.element-post-video__item .element-post-video__bk img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .element-post-video__item .btn-popup-video {

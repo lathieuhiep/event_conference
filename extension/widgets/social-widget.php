@@ -20,7 +20,7 @@ class event_conference_social_widget extends WP_Widget {
             'description'   =>  'A widget that displays your social icons',
         );
 
-        parent::__construct( 'event_conference_social_widget', 'Basic Theme: Social Icons', $event_conference_social_widget_ops );
+        parent::__construct( 'event_conference_social_widget', 'Event Conference: Social Icons', $event_conference_social_widget_ops );
 
     }
 
@@ -71,7 +71,7 @@ class event_conference_social_widget extends WP_Widget {
                 <?php esc_html_e( 'Title:', 'event_conference' ); ?>
             </label>
 
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:90%;" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
 		</p>
 		
 		<p>
