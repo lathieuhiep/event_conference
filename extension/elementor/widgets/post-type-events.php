@@ -355,30 +355,42 @@ class event_conference_post_type_events extends Widget_Base {
                                            </span>
                                        </h4>
 
-                                       <p class="meta-address">
-                                           <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                           <strong>
-                                               <?php esc_html_e( 'Địa Điểm:', 'event_conference' ); ?>
-                                           </strong>
-                                           <?php echo esc_html( $event_conference_post_event_address ); ?>
-                                       </p>
+                                       <?php if ( !empty( $event_conference_post_event_address ) ) : ?>
+
+                                           <p class="meta-address">
+                                               <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                               <strong>
+                                                   <?php esc_html_e( 'Địa Điểm:', 'event_conference' ); ?>
+                                               </strong>
+                                               <?php echo esc_html( $event_conference_post_event_address ); ?>
+                                           </p>
+
+                                        <?php endif; ?>
 
                                        <div class="meta-bottom d-flex justify-content-between align-items-end">
-                                           <p class="meta-scale">
-                                               <i class="fa fa-users" aria-hidden="true"></i>
-                                               <strong>
-                                                   <?php esc_html_e( 'Quy mô:', 'event_conference' ); ?>
-                                               </strong>
-                                               <?php echo esc_html( $event_conference_post_event_scale ); ?>
-                                           </p>
+                                            <?php if ( !empty( $event_conference_post_event_scale ) ) : ?>
 
-                                           <p class="meta-time">
-                                               <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                               <strong>
-                                                   <?php esc_html_e( 'Thời gian:', 'event_conference' ); ?>
-                                               </strong>
-                                               <?php echo esc_html( $event_conference_post_event_time ); ?>
-                                           </p>
+                                               <p class="meta-scale">
+                                                   <i class="fa fa-users" aria-hidden="true"></i>
+                                                   <strong>
+                                                       <?php esc_html_e( 'Quy mô:', 'event_conference' ); ?>
+                                                   </strong>
+                                                   <?php echo esc_html( $event_conference_post_event_scale ); ?>
+                                               </p>
+
+                                            <?php endif; ?>
+
+                                            <?php if ( !empty( $event_conference_post_event_scale ) ) : ?>
+
+                                               <p class="meta-time">
+                                                   <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                   <strong>
+                                                       <?php esc_html_e( 'Thời gian:', 'event_conference' ); ?>
+                                                   </strong>
+                                                   <?php echo esc_html( $event_conference_post_event_time ); ?>
+                                               </p>
+
+                                            <?php endif; ?>
                                        </div>
                                    </div>
                                </div>

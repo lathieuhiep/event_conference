@@ -1504,8 +1504,8 @@ section.widget form.newsletter .tnp-field.tnp-field-button input {
 
 .page-numbers li span.current,
 .page-numbers li a:hover {
-  background: #ff5555;
-  border-color: #ff5555;
+  background: #edc300;
+  border-color: #edc300;
   color: #ffffff;
 }
 
