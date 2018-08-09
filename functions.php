@@ -287,7 +287,7 @@ function event_conference_register_front_end() {
     endif;
 
     /* Start Hungkv style */
-    wp_enqueue_style( 'hungkv-style', get_theme_file_uri( '/hungkv-style.css' ), array(), true );
+//    wp_enqueue_style( 'hungkv-style', get_theme_file_uri( '/hungkv-style.css' ), array(), true );
     /* End Hungkv style */
 
     /*  Start Style Css   */
