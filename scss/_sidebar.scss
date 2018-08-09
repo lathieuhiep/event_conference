@@ -334,6 +334,16 @@ section {
       }
     }
     &.event_conference_post_video_widget {
+      .video_widget_custom_box {
+        height: 115px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
       .element-post-video__item {
         margin-bottom: 15px;
 

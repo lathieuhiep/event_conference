@@ -286,10 +286,6 @@ function event_conference_register_front_end() {
         wp_enqueue_style( 'mCustomScrollbar', get_theme_file_uri( '/css/jquery.mCustomScrollbar.min.css' ), array(), '3.1.5' );
     endif;
 
-    /* Start Hungkv style */
-//    wp_enqueue_style( 'hungkv-style', get_theme_file_uri( '/hungkv-style.css' ), array(), true );
-    /* End Hungkv style */
-
     /*  Start Style Css   */
     wp_enqueue_style( 'event_conference-style', get_stylesheet_uri() );
     /*  Start Style Css   */

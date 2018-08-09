@@ -177,6 +177,28 @@ class event_conference_post_video extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'height_box_video',
+            [
+                'label' => esc_html__( 'Height Box', 'event_conference' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 1000,
+                    ],
+                ],
+                'default' => [
+                    'size' => '',
+                ],
+                'size_units' => [ 'px' ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-post-video__item .element-post-video__custom' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+                'separator' => 'before',
+            ]
+        );
+
         $this->end_controls_section();
 
     }
@@ -260,7 +282,7 @@ class event_conference_post_video extends Widget_Base {
 
                         <div class="col-12 col-sm-6 col-md-4 <?php echo esc_attr( $class_column_number ) ?> item">
                             <div class="element-post-video__item">
-                                <div class="element-post-video__bk">
+                                <div class="element-post-video__bk element-post-video__custom">
                                     <?php
                                     if( has_post_thumbnail() ):
                                         the_post_thumbnail( 'large' );

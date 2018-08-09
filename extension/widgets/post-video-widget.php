@@ -93,7 +93,7 @@ class event_conference_post_video_widget extends WP_Widget {
 
                     <div class="col-12 col-sm-6 col-md-6 item">
                         <div class="element-post-video__item">
-                            <div class="element-post-video__bk">
+                            <div class="element-post-video__bk video_widget_custom_box">
                                 <?php
                                 if( has_post_thumbnail() ):
                                     the_post_thumbnail( 'large' );

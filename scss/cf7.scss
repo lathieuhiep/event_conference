@@ -45,15 +45,15 @@ form {
       color: #fff;
       padding: 6px 12px;
       font-size: 14px;
-      background-color: #5bc0de;
-      border: 1px solid #46b8da;
+      background-color: #f0ad4e;
+      border: 1px solid #eea236;
       cursor: pointer;
       @include border-radius(4px);
       @include transition(all 0.4s ease-in-out);
 
       &:hover {
-        background-color: #31b0d5;
-        border-color: #269abc;
+        background-color: #ec971f;
+        border-color: #d58512;
       }
     }
   }
