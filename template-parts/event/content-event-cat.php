@@ -24,7 +24,7 @@ $event_conference_col_sidebar = event_conference_col_use_sidebar( $event_confere
                 <?php get_template_part( 'template-parts/event/inc', 'slides-event-cat' ); ?>
 
                 <div class="site-event-cat-content">
-                    <h1 class="title-cat text-uppercase">
+                    <h1 class="title-cat-global">
                         <?php echo esc_html( $event_conference_cat_event_object->name ); ?>
                     </h1>
 

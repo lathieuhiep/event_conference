@@ -22,57 +22,51 @@ $event_conference_col_sidebar = event_conference_col_use_sidebar( $event_confere
 
             <div class="<?php echo esc_attr( $event_conference_col_sidebar ); ?>">
                 <?php
-
-                if ( have_posts() ) : while (have_posts()) : the_post();
-
-                    $event_conference_comment_count  = wp_count_comments( get_the_ID() );
-
+                if ( have_posts() ) :
+                    while (have_posts()) :
+                        the_post();
                 ?>
 
                     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
                         <?php
-
                         event_conference_post_formats();
 
                         get_template_part( 'template-parts/post/content','info' );
-
                         ?>
                     </div>
 
                 <?php if ( get_the_author_meta( 'description' ) != '' ) : ?>
 
                     <div class="site-author d-flex">
-                            <div class="author-avata">
-                                <?php echo get_avatar( get_the_author_meta('ID'),80); ?>
-                            </div>
-                            <div class="author-info">
-                                <h3><a href="<?php echo get_author_posts_url(get_the_author_meta('ID'))?>"><?php the_author();?></a></h3>
-                                <p>
-                                    <?php the_author_meta('description'); ?>
-                                </p>
-                            </div>
+                        <div class="author-avata">
+                            <?php echo get_avatar( get_the_author_meta('ID'),80); ?>
                         </div>
+                        <div class="author-info">
+                            <h3><a href="<?php echo get_author_posts_url(get_the_author_meta('ID'))?>"><?php the_author();?></a></h3>
+                            <p>
+                                <?php the_author_meta('description'); ?>
+                            </p>
+                        </div>
+                    </div>
+
+                <?php
+                endif;
+
+                    if ( comments_open() || get_comments_number() ) :
+                ?>
+
+                    <div class="site-comments">
+                        <?php comments_template( '', true ); ?>
+                    </div>
 
                 <?php
                     endif;
 
-                        if ( comments_open() || get_comments_number() ) :
-
-                ?>
-
-                        <div class="site-comments">
-                            <?php comments_template( '', true ); ?>
-                        </div>
-
-                <?php
-                        endif;
-
                     endwhile;
                 endif;
 
+                get_template_part( 'template-parts/post/inc', 'related-post' );
                 ?>
-
             </div>
 
             <?php

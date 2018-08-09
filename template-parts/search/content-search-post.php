@@ -34,7 +34,6 @@ while (have_posts()) :
 endwhile;
 
 wp_reset_postdata();
-?>
 
 
 

@@ -312,7 +312,7 @@ function event_conference_register_front_end() {
 
     wp_register_script( 'owl-carousel', get_theme_file_uri( '/js/owl.carousel.min.js' ), array(), '2.3.4', true );
 
-    if( is_single() || is_tag() || is_category() || is_archive() || is_author() || is_search() || is_home() || is_page_template( 'templates/event-cat.php' ) ) :
+    if( is_single() || is_tag() || is_category() || is_archive() || is_author() || is_search() || is_home() || is_page_template( 'templates/event-cat.php' ) || is_page_template( 'templates/category-post.php' ) ) :
 
         /* Start Carousel Js */
         wp_enqueue_script( 'owl-carousel' );
@@ -809,3 +809,34 @@ function event_conference_col_sidebar() {
     return $class_col_sidebar;
 }
 /* End Get col global */
+
+/* Start social network share */
+function event_conference_social_network_share() {
+?>
+
+    <div class="site-post-share">
+        <!-- Facebook Button -->
+        <a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
+            <i class="fa fa-facebook"></i>
+            <span>
+                <?php echo esc_html( 'Facebook' ); ?>
+            </span>
+        </a>
+
+        <!-- Twitter Button -->
+        <a class="twitter" target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print event_conference_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
+            <i class="fa fa-twitter"></i>
+            <span>
+                <?php echo esc_html( 'Tweet' ); ?>
+            </span>
+        </a>
+
+        <!-- Google Button -->
+        <a class="google" target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
+            <i class="fa fa-google-plus"></i>
+        </a>
+    </div>
+
+<?php
+}
+/* End social network share */

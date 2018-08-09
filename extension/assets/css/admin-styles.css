@@ -311,6 +311,7 @@
 .rwmb-field.rwmb-heading-wrapper p.description {
     margin: 10px 0 0;
 }
-#page_option_normal {
+#page_option_event_cat,
+#page_option_cat_post {
     display: none;
 }

@@ -19,25 +19,39 @@ $event_conference_col_sidebar = event_conference_col_use_sidebar( $event_confere
             ?>
 
             <div class="<?php echo esc_attr( $event_conference_col_sidebar ); ?>">
-                <div class="row">
+                <div class="site-cat-post-content">
                     <?php
-                    if ( have_posts() ) :
-
-                        if ( ! is_search() ):
-                            get_template_part( 'template-parts/archive/content', 'archive-post' );
-                        else:
-                            get_template_part( 'template-parts/search/content', 'search-post' );
-                        endif;
-
-                    else:
-
-                        if ( is_search() ) :
-                            get_template_part( 'template-parts/search/content', 'search-no-data' );
-                        endif;
-
-                    endif; // end if ( have_posts )
+                    if( is_archive() ):
+                        $event_conference_cat_object = get_queried_object();
                     ?>
+
+                        <h1 class="title-cat-global">
+                            <?php echo esc_html( $event_conference_cat_object->name ); ?>
+                        </h1>
+
+                    <?php endif; ?>
+
+                    <div class="row site-event-cat-post">
+                        <?php
+                        if ( have_posts() ) :
+
+                            if ( ! is_search() ):
+                                get_template_part( 'template-parts/archive/content', 'archive-post' );
+                            else:
+                                get_template_part( 'template-parts/search/content', 'search-post' );
+                            endif;
+
+                        else:
+
+                            if ( is_search() ) :
+                                get_template_part( 'template-parts/search/content', 'search-no-data' );
+                            endif;
+
+                        endif; // end if ( have_posts )
+                        ?>
+                    </div>
                 </div>
+
                 <?php event_conference_pagination(); ?>
             </div>
 

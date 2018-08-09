@@ -34,11 +34,11 @@ class event_conference_recent_posts_widget extends WP_Widget {
 
         echo $args['before_widget'];
 
-        if ( ! empty( $instance['title'] ) ) {
+        if ( ! empty( $instance['title'] ) ) :
 
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 
-        }
+        endif;
 
         $event_conference_recent_posts_limit       =   isset( $instance['number'] ) ? $instance['number'] : 5;
         $event_conference_recent_posts_type_post   =   !empty( $instance['type_post'] ) ? $instance['type_post'] : 'list';
@@ -342,7 +342,7 @@ class event_conference_recent_posts_widget extends WP_Widget {
     }
 }
 
-// Register recent posts thumbs widget
+// Register widget
 function event_conference_recent_posts_register_widget() {
     register_widget( 'event_conference_recent_posts_widget' );
 }

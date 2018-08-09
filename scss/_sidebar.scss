@@ -25,7 +25,6 @@ section {
       margin-bottom: 0;
     }
     .widget-title {
-      text-transform: uppercase;
       margin-bottom: 20px;
       font-size: 16px;
     }
@@ -212,6 +211,137 @@ section {
               @include border-radius(4px);
             }
           }
+        }
+      }
+    }
+    .event-widget-tcvsk {
+      .nav-tabs {
+        border-bottom: 0;
+
+        li {
+          background-color: #1e3a70;
+          padding-bottom: 2px;
+          width: 50%;
+
+          a {
+            color: #fff;
+            font-weight: bold;
+            border: 0;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 13px;
+          }
+          a.active {
+            background-color: #052460;
+          }
+        }
+      }
+      .tab-content {
+        background-color: #052460;
+
+        h3 {
+          text-align: center;
+          font-size: 1.1em;
+          font-weight: bold;
+          text-transform: uppercase;
+          background-color: #ffcf01;
+          padding: 5px;
+          color: #000;
+        }
+        .tab-pane {
+          padding: 15px;
+
+          p {
+            margin: 0;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+          }
+        }
+        .tab-content__item {
+          margin-bottom: 15px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .item-list {
+            p {
+              margin-bottom: 15px;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+      form {
+        &.wpcf7-form {
+          .wpcf7-submit {
+            background-color: #f0ad4e;
+            border-color: #eea236;
+
+            &:hover {
+              background-color: #ec971f;
+              border-color: #d58512;
+            }
+          }
+        }
+      }
+    }
+    &.event_conference_events_widget {
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      padding: 15px;
+
+      .widget-title {
+        font-size: 15px;
+        font-weight: 400;
+        color: #052460;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+      }
+      .events_widget__item {
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .item-image {
+          width: 110px;
+          @include flex(0 0 auto);
+        }
+        .item-content {
+          padding-left: 15px;
+        }
+        .item-title {
+          font-size: 14px;
+          line-height: 1.5em;
+          height: 3em;
+          margin-bottom: 10px;
+          overflow: hidden;
+        }
+        .item-meta {
+          font-size: 12px;
+
+          i.fa {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    &.event_conference_post_video_widget {
+      .element-post-video__item {
+        margin-bottom: 15px;
+
+        .btn-popup-video {
+          font-size: 30px;
+        }
+        .title-post {
+          font-size: 14px;
         }
       }
     }

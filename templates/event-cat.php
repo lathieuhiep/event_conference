@@ -106,7 +106,7 @@ $event_conference_post_event_query = new WP_Query( $event_conference_post_event_
                     ?>
 
                     <div class="site-event-cat-content">
-                        <h1 class="title-cat text-uppercase">
+                        <h1 class="title-cat-global">
                             <?php the_title(); ?>
                         </h1>
 

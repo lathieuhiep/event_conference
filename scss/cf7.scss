@@ -2,7 +2,7 @@ form {
   &.wpcf7-form {
     p {
       position: relative;
-      margin-bottom: 15px;
+      margin: 0;
 
       span {
         &.ajax-loader {
@@ -14,10 +14,13 @@ form {
     label {
       display: block;
       color: #666666;
+      font-size: 14px;
+      text-align: left;
     }
     span {
       &.wpcf7-form-control-wrap {
         display: block;
+        margin-bottom: 15px;
 
         input,
         textarea {
@@ -41,6 +44,7 @@ form {
     .wpcf7-submit {
       color: #fff;
       padding: 6px 12px;
+      font-size: 14px;
       background-color: #5bc0de;
       border: 1px solid #46b8da;
       cursor: pointer;
