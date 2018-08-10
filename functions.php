@@ -410,7 +410,7 @@ function event_conference_comments( $event_conference_comment, $event_conference
     <?php endif; ?>
 
     <div class="comment-meta commentmetadata">
-        <div class="comment-meta-box">
+        <div class="comment-meta-box d-flex">
              <span class="name">
                 <?php comment_author_link(); ?>
             </span>
@@ -586,13 +586,6 @@ function event_conference_register_required_plugins() {
         array(
             'name'      =>  'Categories Images',
             'slug'      =>  'categories-images',
-            'required'  =>  true,
-        ),
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      =>  'Newsletter',
-            'slug'      =>  'newsletter',
             'required'  =>  true,
         ),
 

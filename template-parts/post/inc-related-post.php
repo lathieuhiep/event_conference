@@ -12,7 +12,7 @@ if ( !empty( $event_conference_term_cat_post ) ):
         'post_type'         =>  'post',
         'cat'               =>  $event_conference_term_cat_post_ids,
         'post__not_in'      =>  array( get_the_ID() ),
-        'posts_per_page'    =>  4,
+        'posts_per_page'    =>  3,
     );
 
     $event_conference_post_related_query = new WP_Query( $event_conference_post_related_arg );
@@ -31,7 +31,7 @@ if ( !empty( $event_conference_term_cat_post ) ):
                 $event_conference_post_related_query->the_post();
             ?>
 
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4 item">
                     <figure class="post-image">
                         <?php the_post_thumbnail( 'medium' ); ?>
 

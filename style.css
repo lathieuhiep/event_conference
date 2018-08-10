@@ -1658,6 +1658,23 @@ section.widget.event_conference_post_video_widget .element-post-video__item .tit
   padding-top: 30px;
 }
 
+.site-single-post-related .item {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.site-single-post-related .post-image {
+  background-color: #ffffff;
+}
+
+.site-single-post-related .post-image img {
+  width: 100%;
+}
+
 .site-single-post-related .title {
   position: relative;
   font-size: 18px;
@@ -1682,7 +1699,6 @@ section.widget.event_conference_post_video_widget .element-post-video__item .tit
 }
 
 .site-single-post-related figcaption {
-  background-color: #ffffff;
   padding: 10px 5px;
 }
 
@@ -1733,14 +1749,29 @@ section.widget.event_conference_post_video_widget .element-post-video__item .tit
 
 /* Comment */
 .site-comments {
-  padding: 30px 0;
+  padding: 30px 15px;
+  margin: 30px 0;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+}
+
+.site-comments .comment-respond fieldset.rating legend {
+  font-size: 16px;
+  margin-bottom: 0;
+  float: left;
+  width: auto;
+  max-width: none;
+}
+
+.site-comments .comment-respond fieldset.rating:not(:checked) > label {
+  text-shadow: none;
 }
 
 .comment-reply-title,
 .comments-title {
   position: relative;
   font-size: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding-bottom: 15px;
   display: block;
 }
@@ -1860,29 +1891,24 @@ section.widget.event_conference_post_video_widget .element-post-video__item .tit
 }
 
 .comments-area .comment-list li .comment-body .comment-meta {
-  padding-left: 30px;
+  padding-left: 15px;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
 .comments-area .comment-list li .comment-body .comment-meta .comment-meta-box {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .comments-area .comment-list li .comment-body .comment-meta .comment-meta-box span {
-  display: inline-block;
-}
-
-.comments-area .comment-list li .comment-body .comment-meta .comment-meta-box span.comment-metadata {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .comments-area .comment-list li .comment-body .comment-meta .comment-meta-box .name {
   display: block;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 5px;
 }
 
 .comments-area .comment-list li .comment-body .comment-meta .comment-meta-box a {
@@ -1891,6 +1917,15 @@ section.widget.event_conference_post_video_widget .element-post-video__item .tit
 
 .comments-area .comment-list li .comment-body .comment-meta .comment-meta-box a:hover {
   color: #ff5555;
+}
+
+.comments-area .comment-list li .comment-body .comment-meta .comment-text-box span.wpcr_author_stars {
+  margin: 0 0 10px;
+}
+
+.comments-area .comment-list li .comment-body .comment-meta .comment-text-box p {
+  color: #000000;
+  font-size: 14px;
 }
 
 .comments-area .comment-list li ol.children {

@@ -1,11 +1,33 @@
 .site-comments {
-  padding: 30px 0;
+  padding: 30px 15px;
+  margin: 30px 0;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+
+  .comment-respond {
+    fieldset {
+      &.rating {
+        legend {
+          font-size: 16px;
+          margin-bottom: 0;
+          float: left;
+          width: auto;
+          max-width: none;
+        }
+        &:not(:checked) {
+          > label {
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
 }
 .comment-reply-title,
 .comments-title {
   position: relative;
   font-size: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding-bottom: 15px;
   display: block;
 
@@ -89,24 +111,19 @@
           @include flex(0 0 auto);
         }
         .comment-meta {
-          padding-left: 30px;
+          padding-left: 15px;
           @include flex(1);
 
           .comment-meta-box {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
 
             span {
-              display: inline-block;
-
-              &.comment-metadata {
-                margin-right: 10px;
-              }
+              margin-right: 5px;
             }
             .name {
               display: block;
               font-size: 16px;
               font-weight: 700;
-              margin-bottom: 5px;
             }
             a {
               margin-right: 10px;
@@ -114,6 +131,17 @@
               &:hover {
                 color: $color-hover;
               }
+            }
+          }
+          .comment-text-box {
+            span {
+              &.wpcr_author_stars {
+                margin: 0 0 10px;
+              }
+            }
+            p {
+              color: #000000;
+              font-size: 14px;
             }
           }
         }
