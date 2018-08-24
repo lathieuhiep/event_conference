@@ -58,6 +58,13 @@
 
         /* Start Gallery Single Event */
         $( document ).general_owlCarousel_item( '.site-single-event__slides' );
+
+        $('.site-single-event__gallery--item').on( 'click', function () {
+
+            let index = $('.site-single-event__gallery--item').index( this );
+            $('.site-single-event__slides').trigger('to.owl.carousel', [index, 800]);
+
+        } );
         /* End Gallery Single Event */
 
         /* Start mCustomScrollbar single event gallery */
@@ -135,7 +142,8 @@
                     nav: $active_nav,
                     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
                     dots: $active_dots,
-                    autoHeight:true
+                    autoHeight:true,
+                    animateOut: 'fadeOut'
 
                 });
 

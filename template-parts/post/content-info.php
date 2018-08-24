@@ -46,8 +46,8 @@ $event_conference_on_off_share_single = $event_conference_options['event_confere
 
             <span class="site-post-view">
                 <i class="fa fa-eye"></i>
-                <?php echo esc_html__('Lượt xem: ','event_conference'); ?>
-                52742
+
+                <?php echo esc_html__('Lượt xem: ','event_conference'); echo event_conference_post_view_get( get_the_ID() ); ?>
             </span>
         </div>
     </div>

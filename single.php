@@ -25,6 +25,8 @@ $event_conference_col_sidebar = event_conference_col_use_sidebar( $event_confere
                 if ( have_posts() ) :
                     while (have_posts()) :
                         the_post();
+
+                        event_conference_post_view_set( get_the_ID() );
                 ?>
 
                     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

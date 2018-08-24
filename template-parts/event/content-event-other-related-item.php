@@ -8,7 +8,9 @@ $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time
     <div class="row">
         <div class="col-md-5">
             <figure class="item-image">
-                <?php the_post_thumbnail( 'large' ); ?>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                    <?php the_post_thumbnail( 'large' ); ?>
+                </a>
             </figure>
         </div>
 

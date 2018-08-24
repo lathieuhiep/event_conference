@@ -25,17 +25,17 @@
   }
   .element-events__item--content {
     padding: 10px;
-    background-color: #ffffff;
+    background-color: #f0f3f6;
     @include flexbox();
     @include flex-direction(column);
     @include flex(1 auto);
   }
   .element-events__item--title {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5em;
     height: 3em;
     overflow: hidden;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
     a {
       color: $color-title;
@@ -67,7 +67,7 @@
         position: relative;
         display: inline-block;
         padding: 0 10px;
-        background-color: #ffffff;
+        background-color: #f0f3f6;
         z-index: 2;
       }
     }
