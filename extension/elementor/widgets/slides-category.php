@@ -23,7 +23,7 @@ class event_conference_slides_category extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['owl-carousel', 'event_conference-elementor-custom'];
+        return ['event_conference-elementor-custom'];
     }
 
     protected function _register_controls() {

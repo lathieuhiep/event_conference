@@ -32,8 +32,6 @@ class event_conference_post_video_widget extends WP_Widget {
      */
 	function widget( $args, $instance ) {
 
-        wp_enqueue_script( 'lity' );
-
         echo $args['before_widget'];
 
         if ( ! empty( $instance['title'] ) ) {

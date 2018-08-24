@@ -22,10 +22,6 @@ class event_conference_post_type extends Widget_Base {
         return 'eicon-post';
     }
 
-    public function get_script_depends() {
-        return ['lity'];
-    }
-
     protected function _register_controls() {
 
         $this->start_controls_section(
