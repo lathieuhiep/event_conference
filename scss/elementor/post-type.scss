@@ -19,6 +19,8 @@
     background-color: #074c80;
   }
   .element-post-type__item {
+    margin-bottom: 15px;
+
     &:hover {
       img {
         opacity: 0.75;
@@ -47,10 +49,11 @@
       color: $color-title;
     }
   }
+  .element-post-type__box-video {
+    margin-bottom: 20px;
+  }
 }
 .element-post-type__top {
-  margin-bottom: 20px;
-
   .heading {
     position: relative;
     font-size: 30px;
@@ -72,7 +75,7 @@
     }
   }
   .description {
-    margin: 15px 0 0;
+    margin: 15px 0;
   }
 }
 .element-post-type__video {
