@@ -749,7 +749,7 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 function event_conference_col_use_sidebar( $option_position_sidebar_meta, $active_sidebar ) {
 
     if ( $option_position_sidebar_meta != 'hide' && is_active_sidebar( $active_sidebar ) ):
-        $class_col_content_sidebar = 'col-12 col-md-7 col-lg-8';
+        $class_col_content_sidebar = 'col-12 col-md-12 col-lg-8';
     else:
         $class_col_content_sidebar = 'col-md-12';
     endif;
@@ -758,7 +758,7 @@ function event_conference_col_use_sidebar( $option_position_sidebar_meta, $activ
 }
 
 function event_conference_col_sidebar() {
-    $class_col_sidebar = 'col-12 col-md-5 col-lg-4';
+    $class_col_sidebar = 'col-12 col-md-12 col-lg-4';
 
     return $class_col_sidebar;
 }

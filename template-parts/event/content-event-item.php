@@ -1,4 +1,4 @@
-<div class="site-archive-item col-12 col-sm-6 col-md-12 col-lg-6">
+<div class="site-archive-item col-12 col-sm-6 col-md-6 col-lg-6">
     <figure class="site-archive-item__img">
         <a class="link-post" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
         <?php the_post_thumbnail( 'large' ); ?>

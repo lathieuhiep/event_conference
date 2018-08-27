@@ -10,7 +10,7 @@ $event_conference_logo_partner_image = $event_conference_options['event_conferen
 
 <div class="site-footer__bottom">
     <div class="container">
-        <div class="site-copyright-menu d-flex align-items-center justify-content-between">
+        <div class="site-copyright-menu d-md-flex align-items-md-center justify-content-md-between">
             <div class="site-copyright">
                 <?php echo wp_kses_post( $event_conference_copyright ); ?>
             </div>

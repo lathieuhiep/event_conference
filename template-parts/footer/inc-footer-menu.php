@@ -9,7 +9,7 @@ if ( has_nav_menu( 'footer-menu' ) ) :
 
 <div class="row row-item">
     <div class="col-lg-12">
-        <div class="site-footer__menu d-flex align-items-center">
+        <div class="site-footer__menu d-lg-flex align-items-lg-center">
             <div class="site-footer__logo-text">
                 <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                     <?php echo esc_html( $event_conference_logo_text_footer ); ?>

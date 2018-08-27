@@ -328,7 +328,7 @@ class event_conference_post_type extends Widget_Base {
         <div class="element-post-type">
             <div class="element-post-type__box-video">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-12 col-sm-7 col-lg-8">
                         <div class="element-post-type__top">
                             <h2 class="heading">
                                 <?php echo esc_html( $settings['post_type_title'] ); ?>
@@ -344,7 +344,7 @@ class event_conference_post_type extends Widget_Base {
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-12 col-sm-5 col-lg-4">
                         <div class="element-post-type__video">
                             <figure class="element-post-type__video--image">
                                 <?php echo wp_get_attachment_image( $settings['background_popup_video']['id'], 'large' ); ?>
