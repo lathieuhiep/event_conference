@@ -320,49 +320,6 @@ Redux::setSection($event_conference_opt_name, array(
     )
 ));
 
-// information
-Redux::setSection($event_conference_opt_name, array(
-    'title' => esc_html__('Information', 'event_conference'),
-    'id' => 'event_conference_information_config',
-    'desc' => esc_html__('', 'event_conference'),
-    'subsection' => true,
-    'fields' => array(
-
-        array(
-            'id' => 'event_conference_information_show_hide',
-            'type' => 'select',
-            'title' => esc_html__('Show Or Hide Information', 'event_conference'),
-            'default' => 1,
-            'options' => array(
-                1 => esc_html__('Show', 'event_conference'),
-                0 => esc_html__('Hide', 'event_conference')
-            )
-        ),
-
-        array(
-            'id' => 'event_conference_information_address',
-            'type' => 'text',
-            'title' => esc_html__('Address', 'event_conference'),
-            'default' => '988782, Our Street, S State.',
-        ),
-
-        array(
-            'id' => 'event_conference_information_mail',
-            'type' => 'text',
-            'title' => esc_html__('Mail', 'event_conference'),
-            'default' => 'info@domain.com',
-        ),
-
-        array(
-            'id' => 'event_conference_information_phone',
-            'type' => 'text',
-            'title' => esc_html__('Phone', 'event_conference'),
-            'default' => '+1 234 567 186',
-        ),
-
-    )
-));
-
 /* End Header Options */
 
 /* Start Blog Option */

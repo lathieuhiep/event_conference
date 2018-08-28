@@ -2,7 +2,6 @@
     global $event_conference_options;
 
     $event_conference_logo_image_id    =   $event_conference_options['event_conference_logo_image']['id'];
-    $event_conference_information_show_hide = $event_conference_options['event_conference_information_show_hide'] == '' ? 1 : $event_conference_options['event_conference_information_show_hide'];
 
     $event_conference_position_header = rwmb_meta( 'event_conference_position_header' );
 
@@ -15,13 +14,6 @@
 
 <header id="home" class="header <?php echo esc_attr( $event_conference_class_position ); ?>">
     <nav id="navigation" class="header-nav navbar-expand-lg">
-
-        <?php
-        if ( $event_conference_information_show_hide == 1 ) :
-            get_template_part( 'template-parts/header/inc', 'information' );
-        endif;
-        ?>
-
         <div class="header-bottom">
             <div class="container">
                 <div class="header-bottom_warp d-lg-flex align-items-center justify-content-lg-end">
