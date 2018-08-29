@@ -824,6 +824,7 @@ function my_deregister_styles() {
         if ( !has_shortcode( $plugin_photo, 'contact-form-7' ) ) :
 
             wp_deregister_style( 'contact-form-7' );
+            wp_deregister_script( 'contact-form-7' );
 
         endif;
 
