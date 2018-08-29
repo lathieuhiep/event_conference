@@ -168,6 +168,9 @@ foreach(glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $eve
     require $event_conference_file_widgets;
 }
 
+/* Require HTML Compression */
+require get_parent_theme_file_path( '/extension/WP-HTML-Compression.php' );
+
 /**
  * Register Sidebar
  */
@@ -237,6 +240,61 @@ function event_conference_widgets_init() {
         ));
 
     endforeach;
+
+}
+
+// Remove jquery migrate
+add_action( 'wp_default_scripts', 'event_conference_remove_jquery_migrate' );
+function event_conference_remove_jquery_migrate( $scripts ) {
+    if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
+        $script = $scripts->registered['jquery'];
+        if ( $script->deps ) {
+            $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+        }
+    }
+}
+
+// Load jquery script in footer
+add_action( 'init', 'event_conference_init_scripts'  );
+function event_conference_init_scripts() {
+
+    if ( !is_admin() ) :
+        wp_deregister_script('jquery');
+
+        // Load the copy of jQuery that comes with WordPress
+        // The last parameter set to TRUE states that it should be loaded
+        // in the footer.
+        wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, '', true );
+
+        wp_enqueue_script('jquery');
+    endif;
+
+}
+
+// Check deregister styles
+add_action( 'wp_print_styles', 'event_conference_deregister_styles', 100 );
+function event_conference_deregister_styles() {
+    global $post;
+
+    wp_deregister_style('font-awesome');
+    wp_deregister_style('wpcr_font-awesome');
+
+    if ( !is_singular( 'post' ) ) :
+        wp_deregister_style( 'wpcr_style' );
+        wp_dequeue_script( 'wpcr_js' );
+    endif;
+
+    if ( ! empty( $post ) && is_a( $post, 'WP_Post' ) ) :
+        $plugin_photo = $post->post_content;
+
+        if ( !has_shortcode( $plugin_photo, 'contact-form-7' ) ) :
+
+            wp_deregister_style( 'contact-form-7' );
+            wp_dequeue_script('contact-form-7');
+
+        endif;
+
+    endif;
 
 }
 
@@ -561,6 +619,13 @@ function event_conference_register_required_plugins() {
             'required'  =>  true,
         ),
 
+        // This is an example of how to include a plugin from the WordPress Plugin Repository
+        array(
+            'name'      =>  'WP Post Comment Rating',
+            'slug'      =>  'wp-post-comment-rating',
+            'required'  =>  true,
+        ),
+
     );
 
     /**
@@ -794,39 +859,3 @@ function event_conference_social_network_share() {
 <?php
 }
 /* End social network share */
-
-function remove_jquery_migrate( $scripts ) {
-    if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
-        $script = $scripts->registered['jquery'];
-        if ( $script->deps ) {
-            $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
-        }
-    }
-}
-add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
-
-add_action('wp_print_styles', 'my_deregister_styles', 100);
-
-function my_deregister_styles() {
-    global $post;
-
-
-    wp_deregister_style('font-awesome');
-    wp_deregister_style('wpcr_font-awesome');
-
-    if ( !is_singular( 'post' ) ) :
-        wp_deregister_style('wpcr_style');
-    endif;
-
-    if ( ! empty( $post ) && is_a( $post, 'WP_Post' ) ) :
-        $plugin_photo = $post->post_content;
-
-        if ( !has_shortcode( $plugin_photo, 'contact-form-7' ) ) :
-
-            wp_deregister_style( 'contact-form-7' );
-
-        endif;
-
-    endif;
-
-}
