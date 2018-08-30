@@ -248,6 +248,28 @@ Redux::setSection($event_conference_opt_name, array(
     ),
 ));
 
+//Minify HTML Options
+Redux::setSection( $event_conference_opt_name, array(
+    'title'             =>  esc_html__( 'Minify HTML', 'event_conference' ),
+    'id'                =>  'event_conference_minify_html_option',
+    'customizer_width'  =>  '400px',
+    'subsection'        => true,
+    'fields'            => array(
+
+        array(
+            'id'        =>  'event_conference_minify_html',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Usage Minify HTML', 'event_conference' ),
+            'default'   =>  0,
+            'options'   =>  array(
+                0   =>  esc_html__( 'Off', 'event_conference' ),
+                1   =>  esc_html__( 'On', 'event_conference' )
+            )
+        ),
+
+    ),
+));
+
 /* End General Options */
 
 /* Start Header Options */

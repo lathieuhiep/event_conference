@@ -117,10 +117,10 @@ class WP_HTML_Compression
     {
    	 $this->html = $this->minifyHTML($html);
    	 
-   	 if ($this->info_comment)
-   	 {
-   		 $this->html .= "\n" . $this->bottomComment($html, $this->html);
-   	 }
+//   	 if ($this->info_comment)
+//   	 {
+//   		 $this->html .= "\n" . $this->bottomComment($html, $this->html);
+//   	 }
     }
     
     protected function removeWhiteSpace($str)
@@ -148,4 +148,3 @@ function wp_html_compression_start()
     ob_start('wp_html_compression_finish');
 }
 add_action('get_header', 'wp_html_compression_start');
-?>
