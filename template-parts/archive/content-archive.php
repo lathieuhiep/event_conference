@@ -35,11 +35,17 @@ $event_conference_col_sidebar = event_conference_col_use_sidebar( $event_confere
                         <?php
                         if ( have_posts() ) :
 
-                            if ( ! is_search() ):
-                                get_template_part( 'template-parts/archive/content', 'archive-post' );
-                            else:
-                                get_template_part( 'template-parts/search/content', 'search-post' );
-                            endif;
+                            while (have_posts()) :
+                                the_post();
+
+                                if ( ! is_search() ):
+                                    get_template_part( 'template-parts/archive/content', 'archive-post' );
+                                else:
+                                    get_template_part( 'template-parts/search/content', 'search-post' );
+                                endif;
+
+                            endwhile;
+                            wp_reset_postdata();
 
                         else:
 

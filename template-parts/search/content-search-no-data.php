@@ -1,4 +1,4 @@
-<div class="site-serach-no-data">
+<div class="col-md-12 site-serach-no-data">
     <h3>
         <?php  esc_html_e('No Data', 'event_conference');?>
     </h3>
