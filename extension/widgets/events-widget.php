@@ -81,6 +81,8 @@ class event_conference_events_widget extends WP_Widget {
 
                     <div class="events_widget__item d-flex">
                         <div class="item-image">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>"></a>
+
                             <?php
                             if( has_post_thumbnail() ):
                                 the_post_thumbnail( 'medium' );

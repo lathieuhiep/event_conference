@@ -32,17 +32,29 @@ if ( !empty( $event_conference_term_cat_post ) ):
             ?>
 
                 <div class="col-12 col-sm-6 col-md-4 item">
-                    <figure class="post-image">
-                        <?php the_post_thumbnail( 'medium' ); ?>
+                    <div class="related-post-item">
+                        <figure class="post-image">
+                            <?php the_post_thumbnail( 'medium' ); ?>
 
-                        <figcaption>
-                            <h4 class="title-post">
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                    <?php the_title(); ?>
-                                </a>
-                            </h4>
-                        </figcaption>
-                    </figure>
+                            <figcaption class="d-flex align-items-end">
+                                <p>
+                                    <?php
+                                    if( has_excerpt() ) :
+                                        echo wp_trim_words( get_the_excerpt(), 15, '...' );
+                                    else:
+                                        echo wp_trim_words( get_the_content(), 15, '...' );
+                                    endif;
+                                    ?>
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <h4 class="title-post">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </h4>
+                    </div>
                 </div>
 
             <?php

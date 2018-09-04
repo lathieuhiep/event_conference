@@ -162,15 +162,47 @@
   border-top: 1px solid #cccccc;
   padding-top: 30px;
 
+  .related-post-item  {
+    width: 100%;
+
+    &:hover {
+      .post-image {
+        figcaption {
+          height: 100%;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
   .item {
     margin-bottom: 15px;
     @include flexbox();
   }
   .post-image {
+    position: relative;
     background-color: #ffffff;
+    overflow: hidden;
 
     img {
       width: 100%;
+    }
+    figcaption {
+      padding: 10px;
+      position: absolute;
+      width: 100%;
+      height: 0;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      background-color: rgba(0,0,0,0.5);
+      @include transition(all 0.4s ease-in-out);
+
+      p {
+        color: #ffffff;
+      }
     }
   }
   .title {
@@ -191,12 +223,9 @@
       @include transform(translateX(-50%));
     }
   }
-  figcaption {
-    padding: 10px 5px;
-  }
   .title-post {
     font-size: 15px;
-    margin: 0;
+    margin: 15px 0 0;
 
     a {
       color: $color-title;

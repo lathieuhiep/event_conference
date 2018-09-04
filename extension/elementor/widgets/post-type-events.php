@@ -336,9 +336,9 @@ class event_conference_post_type_events extends Widget_Base {
                        <div class="col-12 col-sm-6 col-md-4 <?php echo esc_attr( $class_column_number ); ?> col-item">
                            <div class="element-events__item">
                                <figure class="element-events__item--img">
-                                   <a href="<?php the_permalink(); ?>">
-                                       <?php the_post_thumbnail( 'large' ); ?>
-                                   </a>
+                                   <a href="<?php the_permalink(); ?>"></a>
+
+                                   <?php the_post_thumbnail( 'large' ); ?>
                                </figure>
 
                                <div class="element-events__item--content">
