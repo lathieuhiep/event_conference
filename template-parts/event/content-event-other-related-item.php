@@ -4,10 +4,10 @@ $event_conference_post_event_scale = rwmb_meta( 'event_conference_post_event_sca
 $event_conference_post_event_time = rwmb_meta( 'event_conference_post_event_time' );
 ?>
 
-<div class="event-standard-box__item">
+<div class="event-standard-box__item draw-meet-list">
     <div class="row">
         <div class="col-md-5">
-            <figure class="item-image">
+            <figure class="item-image draw-meet-item">
                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                     <?php the_post_thumbnail( 'large' ); ?>
                 </a>

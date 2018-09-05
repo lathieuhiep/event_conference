@@ -320,10 +320,10 @@ function event_conference_register_front_end() {
     wp_enqueue_style( 'event_conference_fonts', event_conference_fonts_url(), array(), null );
     /* End Font */
 
-    wp_enqueue_style( 'main', get_theme_file_uri( '/css/main.css' ), array(), '' );
+    wp_enqueue_style( 'event_conference_style', get_theme_file_uri( '/css/style.min.css' ), array(), '' );
 
     /*  Start Style Css   */
-    wp_enqueue_style( 'event_conference-style', get_stylesheet_uri() );
+//    wp_enqueue_style( 'event_conference-style', get_stylesheet_uri() );
     /*  Start Style Css   */
 
     /*
@@ -348,7 +348,7 @@ function event_conference_register_front_end() {
         wp_enqueue_script( 'comment-reply' );
     endif;
 
-    wp_enqueue_script( 'event-conference-custom', get_theme_file_uri( '/js/custom.js' ), array(), '1.0.0', true );
+    wp_enqueue_script( 'event-conference-custom', get_theme_file_uri( '/js/custom.min.js' ), array(), '1.0.0', true );
 
     /*
    * End Get Js Front End

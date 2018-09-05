@@ -1,9 +1,9 @@
 (function ($) {
 
     /* Start element slides */
-    let ElementCarouselSlider   =   function( $scope, $ ) {
+    var ElementCarouselSlider   =   function( $scope, $ ) {
 
-        let element_slides = $scope.find('.element-slides');
+        var element_slides = $scope.find('.element-slides');
 
         $( document ).general_owlCarousel_item( element_slides );
 
@@ -11,9 +11,9 @@
     /* End element slides */
 
     /* Start element slides category  */
-    let ElementCategoryCarouselSlider   =   function( $scope, $ ) {
+    var ElementCategoryCarouselSlider   =   function( $scope, $ ) {
 
-        let element_slides_cat = $scope.find('.element-slides-cat');
+        var element_slides_cat = $scope.find('.element-slides-cat');
 
         $( document ).general_multi_owlCarouse( element_slides_cat );
 

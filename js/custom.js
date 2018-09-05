@@ -8,7 +8,7 @@
 
     "use strict";
 
-    let timer_clear;
+    var timer_clear;
 
     $( document ).ready( function () {
 
@@ -24,13 +24,13 @@
         /* End back top */
 
         /* btn mobile Start*/
-        let $menu_item_has_children =   $( '.site-menu .menu-item-has-children' );
+        var $menu_item_has_children =   $( '.site-menu .menu-item-has-children' );
 
         if ( $menu_item_has_children.length ) {
 
             $('.site-menu .menu-item-has-children > a').after( "<span class='icon_menu_item_mobile'></span>" );
 
-            let $icon_menu_item_mobile  =   $('.icon_menu_item_mobile');
+            var $icon_menu_item_mobile  =   $('.icon_menu_item_mobile');
 
             $icon_menu_item_mobile.each(function () {
 
@@ -61,14 +61,14 @@
 
         $('.site-single-event__gallery--item').on( 'click', function () {
 
-            let index = $('.site-single-event__gallery--item').index( this );
+            var index = $('.site-single-event__gallery--item').index( this );
             $('.site-single-event__slides').trigger('to.owl.carousel', [index, 800]);
 
         } );
         /* End Gallery Single Event */
 
         /* Start mCustomScrollbar single event gallery */
-        let site_single_event_gallery  = $( '.site-single-event__gallery' );
+        var site_single_event_gallery  = $( '.site-single-event__gallery' );
 
         if ( site_single_event_gallery.length ) {
             site_single_event_gallery.mCustomScrollbar({
@@ -92,7 +92,7 @@
         timer_clear = setTimeout( function() {
 
             /* Start scroll back top */
-            let $scrollTop = $(this).scrollTop();
+            var $scrollTop = $(this).scrollTop();
 
             if ( $scrollTop > 200 ) {
                 $('#back-top').addClass('active_top');
@@ -108,13 +108,13 @@
     /* Start function owlCarouse item */
     $.fn.general_owlCarousel_item = function ( class_item_one ) {
 
-        let class_element_owlCarousel   =   $( class_item_one );
+        var class_element_owlCarousel   =   $( class_item_one );
 
         if ( class_element_owlCarousel.length ) {
 
             class_element_owlCarousel.each(function(){
 
-                let $settings_slider    =   $(this).data( 'settings' ),
+                var $settings_slider    =   $(this).data( 'settings' ),
                     $loop_slider        =   false,
                     $autoplay           =   false,
                     $rtl_slider         =   false,
@@ -157,13 +157,13 @@
     /* Start function multi owlCarouse */
     $.fn.general_multi_owlCarouse = function ( class_item ) {
 
-        let class_item_owlCarousel   =   $( class_item );
+        var class_item_owlCarousel   =   $( class_item );
 
         if ( class_item_owlCarousel.length ) {
 
             class_item_owlCarousel.each(function(){
 
-                let $settings_slider    =   $(this).data( 'settings' ),
+                var $settings_slider    =   $(this).data( 'settings' ),
                     $item_number        =   4,
                     $margin_item        =   15,
                     $loop_slider        =   false,
@@ -172,7 +172,7 @@
                     $active_nav         =   false,
                     $item_mobile        =   1,
                     $margin_item_mobile =   0,
-                    $item_tablet        =   3;
+                    $item_tabvar        =   3;
 
                 if ( $settings_slider !== undefined ) {
 
@@ -184,7 +184,7 @@
                     $active_nav         =   typeof ( $settings_slider['nav'] ) !== "undefined" ?  $settings_slider['nav'] : false;
                     $item_mobile        =   typeof ( $settings_slider['item_mobile'] ) !== "undefined" ? parseInt( $settings_slider['item_mobile'] ) : 1;
                     $margin_item_mobile =   typeof ( $settings_slider['margin_item_mobile'] ) !== "undefined" ? parseInt( $settings_slider['margin_item_mobile'] ) : 0;
-                    $item_tablet        =   typeof ( $settings_slider['item_tablet'] ) !== "undefined" ? parseInt( $settings_slider['item_tablet'] ) : 3;
+                    $item_tabvar        =   typeof ( $settings_slider['item_tabvar'] ) !== "undefined" ? parseInt( $settings_slider['item_tabvar'] ) : 3;
 
                 }
 
@@ -210,7 +210,7 @@
                             items:2
                         },
                         768:{
-                            items: $item_tablet
+                            items: $item_tabvar
                         },
                         1200:{
                             items:$item_number

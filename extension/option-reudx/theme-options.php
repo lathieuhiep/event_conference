@@ -436,6 +436,13 @@ Redux::setSection( $event_conference_opt_name, array(
             'default' => '',
         ),
 
+        array(
+            'id' => 'event_conference_event_notification',
+            'type' => 'text',
+            'title' => esc_html__('Notification', 'event_conference'),
+            'default' => 'Liên hệ để tổ chức sự kiện tương tự: SĐT 123456789',
+        ),
+
     )
 
 ) );

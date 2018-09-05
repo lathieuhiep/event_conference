@@ -316,3 +316,44 @@ figure {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
 }
+.draw-meet-list {
+  .draw-meet-item {
+    position: relative;
+    @include transition( color 0.25s );
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      border: 3px solid transparent;
+      width: 0;
+      height: 0;
+      top: 0;
+      left: 0;
+      z-index: 5;
+    }
+    &:after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+  &:hover {
+    .draw-meet-item {
+      &:before,
+      &:after {
+        width: 100%;
+        height: 100%;
+      }
+      &:before {
+        border-top-color: #fbca67;
+        border-right-color: #fbca67;
+        transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+      }
+      &:after {
+        border-bottom-color: #fbca67;
+        border-left-color: #fbca67;
+        transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+      }
+    }
+  }
+}

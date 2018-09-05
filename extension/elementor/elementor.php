@@ -41,7 +41,7 @@ class event_conference_plugin_elementor_widgets {
     }
 
     function event_conference_elementor_script() {
-        wp_register_script( 'event_conference-elementor-custom', get_theme_file_uri( '/js/elementor-custom.js' ), array(), '1.0.0', true );
+        wp_register_script( 'event_conference-elementor-custom', get_theme_file_uri( '/js/elementor-custom.min.js' ), array(), '1.0.0', true );
     }
 
 }

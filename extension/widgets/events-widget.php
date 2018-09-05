@@ -79,8 +79,8 @@ class event_conference_events_widget extends WP_Widget {
                     $events_query->the_post();
                 ?>
 
-                    <div class="events_widget__item d-flex">
-                        <div class="item-image">
+                    <div class="events_widget__item draw-meet-list d-flex">
+                        <div class="item-image draw-meet-item">
                             <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>"></a>
 
                             <?php

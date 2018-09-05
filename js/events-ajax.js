@@ -8,7 +8,7 @@
 
     "use strict";
 
-    let element_events_filter_btn   =   $( '.element-events__filter--btn' ),
+    var element_events_filter_btn   =   $( '.element-events__filter--btn' ),
         element_events_content  =   $( '.element-events__content' ),
         element_events_prev     =   $( '.element-events__prev' ),
         element_events_next     =   $( '.element-events__next' );
@@ -27,11 +27,11 @@
 
         element_events_filter_btn.on( 'click', function () {
 
-            let has_active = $(this).hasClass( 'active' );
+            var has_active = $(this).hasClass( 'active' );
 
             if ( has_active === false ) {
 
-                let data_total_res = $(this).data( 'total-res' );
+                var data_total_res = $(this).data( 'total-res' );
 
                 $(this).data( 'total-item', data_total_res );
                 $(this).parent().find('.element-events__filter--btn').removeClass( 'active' );
@@ -39,7 +39,7 @@
                 element_events_prev.data( 'prev-page', 0 );
                 element_events_next.data( 'next-page', 2 );
 
-                let data_settings      =   $(this).parents('.element-events').data( 'settings' ),
+                var data_settings      =   $(this).parents('.element-events').data( 'settings' ),
                     data_event_cat_id  =   parseInt( $(this).data( 'event-cat' ) ),
                     data_column        =   parseInt( data_settings['column'] ),
                     data_limit         =   parseInt( data_settings['limit'] ),
@@ -102,7 +102,7 @@
 
         element_events_prev.on( 'click', function () {
 
-            let data_settings      =   $(this).parents('.element-events').data( 'settings' ),
+            var data_settings      =   $(this).parents('.element-events').data( 'settings' ),
                 event_prev_item    =   parseInt( $(this).data( 'prev-page' ) ),
                 event_next_item    =   parseInt( $(this).parents('.element-events').find( '.element-events__next' ).data( 'next-page' ) ),
                 data_event_cat_id  =   parseInt( $(this).parents('.element-events').find( '.element-events__filter--btn.active' ).data( 'event-cat' ) ),
@@ -147,7 +147,7 @@
                         element_events_content.removeClass( 'events-opacity' );
                     }
 
-                    let data_total_item_new =   data_total_item + data_limit,
+                    var data_total_item_new =   data_total_item + data_limit,
                         event_prev_item_new =   event_prev_item - 1,
                         event_next_item_new =   event_next_item - 1;
 
@@ -175,7 +175,7 @@
 
         element_events_next.on( 'click', function () {
 
-            let data_settings      =   $(this).parents('.element-events').data( 'settings' ),
+            var data_settings      =   $(this).parents('.element-events').data( 'settings' ),
                 event_next_item    =   parseInt( $(this).data( 'next-page' ) ),
                 event_prev_item    =   parseInt( $(this).parents('.element-events').find( '.element-events__prev' ).data( 'prev-page' ) ),
                 data_event_cat_id  =   parseInt( $(this).parents('.element-events').find( '.element-events__filter--btn.active' ).data( 'event-cat' ) ),
@@ -221,7 +221,7 @@
                         element_events_content.removeClass( 'events-opacity' );
                     }
 
-                    let data_total_item_new =   data_total_item - data_limit,
+                    var data_total_item_new =   data_total_item - data_limit,
                         event_prev_item_new =   event_prev_item + 1,
                         event_next_item_new =   event_next_item + 1;
 
