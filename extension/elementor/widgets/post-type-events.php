@@ -39,7 +39,7 @@ class event_conference_post_type_events extends Widget_Base {
         $event_conference_get_events        =   array( 'url' => $event_conference_events_admin_url );
         wp_localize_script( 'event_conference_events_ajax', 'event_conference_load_events', $event_conference_get_events );
 
-        wp_enqueue_script( 'event_conference_events_ajax', get_theme_file_uri( '/js/events-ajax.min.js' ), array(), '', true );
+        wp_enqueue_script( 'event_conference_events_ajax', get_theme_file_uri( '/js/events-ajax.js' ), array(), '', true );
 
     }
 

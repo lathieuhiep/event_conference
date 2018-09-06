@@ -275,23 +275,6 @@ function event_conference_deregister_styles() {
     wp_deregister_style('font-awesome');
     wp_deregister_style('wpcr_font-awesome');
 
-    if ( !is_singular( 'post' ) ) :
-        wp_deregister_style( 'wpcr_style' );
-        wp_dequeue_script( 'wpcr_js' );
-    endif;
-
-    if ( ! empty( $post ) && is_a( $post, 'WP_Post' ) ) :
-        $plugin_photo = $post->post_content;
-
-        if ( !has_shortcode( $plugin_photo, 'contact-form-7' ) ) :
-
-            wp_deregister_style( 'contact-form-7' );
-            wp_dequeue_script('contact-form-7');
-
-        endif;
-
-    endif;
-
 }
 
 //Register Back-End script
@@ -317,13 +300,13 @@ function event_conference_register_front_end() {
     * */
 
     /* Start Font */
-    wp_enqueue_style( 'event_conference_fonts', event_conference_fonts_url(), array(), null );
+//    wp_enqueue_style( 'event_conference_fonts', event_conference_fonts_url(), array(), null );
     /* End Font */
 
-    wp_enqueue_style( 'event_conference_style', get_theme_file_uri( '/css/style.min.css' ), array(), '' );
+    wp_enqueue_style( 'event_conference_library', get_theme_file_uri( '/css/library.min.css' ), array(), '' );
 
     /*  Start Style Css   */
-//    wp_enqueue_style( 'event_conference-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'event_conference_style', get_stylesheet_uri() );
     /*  Start Style Css   */
 
     /*
@@ -334,21 +317,21 @@ function event_conference_register_front_end() {
     * Start Get Js Front End
     * */
 
-    wp_deregister_script('jquery');
-    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, '', true );
-    wp_enqueue_script('jquery');
+//    wp_deregister_script('jquery');
+//    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, '', true );
+//    wp_enqueue_script('jquery');
 
     // Load the html5 shiv.
     wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.3' );
     wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-    wp_enqueue_script( 'event-conference-main-js', get_theme_file_uri( '/js/main.min.js' ), array(), '', true );
+    wp_enqueue_script( 'event-conference-library-js', get_theme_file_uri( '/js/library.min.js' ), array(), '', true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) :
         wp_enqueue_script( 'comment-reply' );
     endif;
 
-    wp_enqueue_script( 'event-conference-custom', get_theme_file_uri( '/js/custom.min.js' ), array(), '1.0.0', true );
+    wp_enqueue_script( 'event-conference-custom', get_theme_file_uri( '/js/custom.js' ), array(), '1.0.0', true );
 
     /*
    * End Get Js Front End
@@ -858,3 +841,34 @@ function event_conference_social_network_share() {
 <?php
 }
 /* End social network share */
+
+// remove string version
+function _remove_script_version( $src ){
+    $parts = explode( '?ver', $src );
+    return $parts[0];
+}
+add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+
+// Add scripts to wp_footer()
+function event_conference_font_google_script() {
+
+?>
+
+    <script type="text/javascript">
+        WebFontConfig = {
+            google: { families: [ 'Roboto:400,700' ] }
+        };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })(); </script>
+
+<?php
+
+}
+//add_action( 'wp_footer', 'event_conference_font_google_script' );

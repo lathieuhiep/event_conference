@@ -40,6 +40,22 @@
 /**
 # General
 -----------------------------------------------------------------------------*/
+@font-face {
+  font-family: 'Roboto';
+  src: url("fonts/google/Roboto-Regular.eot");
+  src: url("fonts/google/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/google/Roboto-Regular.woff2") format("woff2"), url("fonts/google/Roboto-Regular.woff") format("woff"), url("fonts/google/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("fonts/google/Roboto-Bold.eot");
+  src: url("fonts/google/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/google/Roboto-Bold.woff2") format("woff2"), url("fonts/google/Roboto-Bold.woff") format("woff"), url("fonts/google/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
 * {
   outline: none !important;
 }
@@ -54,8 +70,8 @@ body {
   overflow-x: hidden;
   font-size: 14px;
   color: #000000;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  font-family: "Roboto";
+  font-weight: normal;
   background-color: #ffffff;
   display: -webkit-box;
   display: -moz-box;
@@ -73,7 +89,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 15px;
-  font-weight: 700;
+  font-weight: bold;
   color: #edc300;
 }
 
@@ -553,7 +569,7 @@ a img.aligncenter {
 }
 
 form.post-password-form p label {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   float: left;
 }
 
@@ -1014,7 +1030,7 @@ form.post-password-form p input[type='submit'] {
 }
 
 .page-links {
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .page-links a {
