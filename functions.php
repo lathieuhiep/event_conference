@@ -251,22 +251,6 @@ function event_conference_remove_jquery_migrate( $scripts ) {
     }
 }
 
-// Load int
-add_action( 'init', 'event_conference_init_load'  );
-function event_conference_init_load() {
-
-    /* Require HTML Compression */
-    global $event_conference_options;
-    $event_conference_minify_html =   $event_conference_options['event_conference_minify_html'];
-
-    if ( $event_conference_minify_html == 1 ) :
-
-        require get_parent_theme_file_path( '/extension/WP-HTML-Compression.php' );
-
-    endif;
-
-}
-
 // Check deregister styles
 add_action( 'wp_print_styles', 'event_conference_deregister_styles', 100 );
 function event_conference_deregister_styles() {
@@ -316,10 +300,6 @@ function event_conference_register_front_end() {
     /*
     * Start Get Js Front End
     * */
-
-//    wp_deregister_script('jquery');
-//    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, '', true );
-//    wp_enqueue_script('jquery');
 
     // Load the html5 shiv.
     wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.3' );
