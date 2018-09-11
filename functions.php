@@ -305,7 +305,12 @@ function event_conference_register_front_end() {
     wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.3' );
     wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-    wp_enqueue_script( 'event-conference-library-js', get_theme_file_uri( '/js/library.min.js' ), array(), '', true );
+//    wp_enqueue_script( 'event-conference-library-js', get_theme_file_uri( '/js/library.min.js' ), array(), '', true );
+
+    wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/js/library/bootstrap.js' ), array(), '', true );
+    wp_enqueue_script( 'owl-carousel', get_theme_file_uri( '/js/library/owl.carousel.js' ), array(), '', true );
+    wp_enqueue_script( 'lity', get_theme_file_uri( '/js/library/lity.js' ), array(), '', true );
+    wp_enqueue_script( 'jquery-mCustomScrollbar', get_theme_file_uri( '/js/library/jquery.mCustomScrollbar.js' ), array(), '', true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) :
         wp_enqueue_script( 'comment-reply' );
