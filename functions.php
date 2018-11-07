@@ -144,11 +144,12 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
     require get_parent_theme_file_path( '/extension/meta-box/meta-box-options.php' );
 }
 
-if ( ! function_exists( 'event_conference_check_rwmb_meta' ) ) {
-    function event_conference_check_rwmb_meta( $event_conference_rwmb_metakey, $event_conference_opt_args = '', $event_conference_rwmb_post_id = null ) {
+if ( ! function_exists( 'rwmb_meta' ) ) {
+    function rwmb_meta( $key, $args = '', $post_id = null ) {
         return false;
     }
 }
+
 
 if ( did_action( 'elementor/loaded' ) ) :
     /*
@@ -307,7 +308,7 @@ function event_conference_register_front_end() {
 
 //    wp_enqueue_script( 'event-conference-library-js', get_theme_file_uri( '/js/library.min.js' ), array(), '', true );
 
-    wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/js/library/bootstrap.js' ), array(), '', true );
+    wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/js/library/bootstrap.js' ), array( 'jquery' ), '', true );
     wp_enqueue_script( 'owl-carousel', get_theme_file_uri( '/js/library/owl.carousel.js' ), array(), '', true );
     wp_enqueue_script( 'lity', get_theme_file_uri( '/js/library/lity.js' ), array(), '', true );
     wp_enqueue_script( 'jquery-mCustomScrollbar', get_theme_file_uri( '/js/library/jquery.mCustomScrollbar.js' ), array(), '', true );
@@ -730,7 +731,7 @@ function event_conference_posts_per_page_taxonomy() {
 }
 
 function event_conference_option_posts_per_page_taxonomy() {
-    
+
     global $event_conference_option_posts_per_page, $event_conference_options;
 
     $event_conference_event_cat_limit = $event_conference_options['event_conference_event_cat_limit'];
@@ -740,7 +741,7 @@ function event_conference_option_posts_per_page_taxonomy() {
     else :
         return $event_conference_option_posts_per_page;
     endif;
-    
+
 }
 
 /* Start Count View Post */
