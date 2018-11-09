@@ -176,9 +176,9 @@ class event_conference_slides_category extends Widget_Base {
                             <?php echo esc_html( $term->name ); ?>
                         </h3>
 
-                        <p class="description">
-                            <?php echo esc_html( $term->description ); ?>
-                        </p>
+                        <div class="description">
+                            <?php echo wp_kses_post( $term->description ); ?>
+                        </div>
                     </div>
                 </div>
 

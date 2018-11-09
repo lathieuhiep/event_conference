@@ -312,6 +312,11 @@
     margin: 10px 0 0;
 }
 #page_option_event_cat,
-#page_option_cat_post {
+#page_option_cat_post,
+.taxonomy-category .form-field.term-description-wrap {
     display: none;
+}
+.quicktags-toolbar input {
+    float:left !important;
+    width:auto !important;
 }

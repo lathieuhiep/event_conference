@@ -858,3 +858,68 @@ function event_conference_font_google_script() {
 
 }
 //add_action( 'wp_footer', 'event_conference_font_google_script' );
+
+// allow html in category and taxonomy descriptions
+remove_filter( 'pre_term_description', 'wp_filter_kses' );
+remove_filter( 'pre_link_description', 'wp_filter_kses' );
+remove_filter( 'pre_link_notes', 'wp_filter_kses' );
+remove_filter( 'term_description', 'wp_kses_data' );
+
+add_filter( 'edit_category_form_fields', 'event_conference_edit_cat_description' );
+function event_conference_edit_cat_description( $category ) {
+?>
+    
+    <table class="form-table">
+        <tr class="form-field">
+            <th scope="row" valign="top">
+                <label for="description">
+                    <?php esc_html_e('Description', 'event_conference'); ?>
+                </label>
+            </th>
+
+            <td>
+                <?php 
+                    $settings = array('wpautop' => true, 'media_buttons' => false, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );
+                    wp_editor(html_entity_decode($category->description , ENT_QUOTES, 'UTF-8'), 'description1', $settings);
+                ?>
+                <br />
+                <span class="description">
+                    <?php esc_html_e( 'The description is not prominent by default, however some themes may show it.', 'event_conference' ); ?>
+                </span>
+            </td>
+        </tr>
+    </table>
+    
+<?php
+    
+}
+
+add_action('category_add_form_fields','add_cat_description');
+function add_cat_description($tag) {
+?>
+
+    <table class="form-table">
+        <tr class="form-field">
+            <th scope="row" valign="top">
+                <label for="description">
+                    <?php esc_html_e('Description', 'event_conference'); ?>
+                </label>
+            </th>
+        </tr>
+
+        <tr class="form-field">
+            <td>
+                <?php
+                    $settings = array('wpautop' => true, 'media_buttons' => false, 'quicktags' => true, 'textarea_rows' => '15', 'textarea_name' => 'description' );
+                    wp_editor(html_entity_decode($tag->description , ENT_QUOTES, 'UTF-8'), 'description1', $settings);
+                ?>
+                <br />
+                <span class="description">
+                    <?php esc_html_e( 'The description is not prominent by default, however some themes may show it.', 'event_conference' ); ?>
+                </span>
+            </td>
+        </tr>
+    </table>
+
+<?php
+}
